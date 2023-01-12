@@ -1,0 +1,143 @@
+﻿.grid-image {
+  height: 40px; }
+
+.grid-image-column {
+  width: 70px; }
+
+.grid-action-column {
+  width: 100px; }
+
+.search-box {
+  min-width: 250px; }
+
+.notice-box {
+  min-height: 250px; }
+
+.form-group {
+  margin: 2px 0; }
+
+.table thead tr th {
+  vertical-align: top; }
+
+.profile-image {
+  height: 150px; }
+
+.control-label {
+  text-align: left !important; }
+
+.input-validation-error {
+  border: solid 1px #a94442; }
+.col-md-6 {
+    float:left;
+    padding-left:5px;
+    padding-bottom:10px;
+}
+.col-sm-6, .col-sm-3 {
+    float:left;
+    padding-left:5px;
+}
+
+
+input[type="radio"], input[type="checkbox"] {
+     margin-right: 6px !important;
+}
+.custombtn {
+     background: none;
+    border: none;
+    text-decoration: underline;
+    color: #337ab7;
+    cursor: pointer;
+    }
+.CommonHeader {
+    margin-top: 18px;
+    float: left;
+    margin-bottom: 20px;
+    background-color: #3B5998 ;
+    color: white;
+    padding: 9px;
+    text-align: center;
+    font-size: 14px;
+}
+@media only screen and (min-width : 425px) and (max-width : 767px) {
+    .CommonHeader {
+        margin-top: 10px;
+    }
+}
+@media only screen and (max-width : 425px) {
+    .CommonHeader {
+        margin-top: 25px;
+    }
+   .search-box {
+    margin-top: 55px;
+}
+}
+.btnNewColor {
+    background-color: #3B5998 ;
+    border-color: #3B5998 ;
+    color: white;
+}
+
+circle
+{
+    fill:none;
+    stroke:midnightblue;
+    stroke-width:3;
+    stroke-dasharray:900;
+    stroke-dashoffset: 900;
+    stroke-linecap: round;
+  
+}
+line
+{
+    stroke-width:3;
+    stroke:midnightblue;
+    whitesmoke;
+    stroke-linecap: round;
+    animation: dashed 3s linear forwards;
+    stroke-dasharray:50;
+    stroke-dashoffset: 50;
+}
+svg:active line
+{
+    animation: dash 3s linear alternate-reverse;
+}
+svg:hover circle
+{
+    animation: dash 2s linear forwards;
+}
+svg circle
+{
+    animation: dashe 0.8s linear;
+}
+@keyframes dash {
+    
+    to{
+        stroke-width:3;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes dashed {
+    
+    to{
+        stroke-width:3;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes dashe {
+    from {
+        stroke-width: 3;
+        stroke-dashoffset: 0;
+    }
+
+    to { stroke-dashoffset: 900; }
+}
+.btnAdd {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.btnRemove {
+    cursor: pointer;
+    background: none;
+    border: none;
+}

@@ -1,0 +1,32 @@
+﻿body {
+}
+.master.kmjptb table{
+            display: block;
+            overflow: scroll;
+            table-layout: fixed;
+
+        }
+
+@media only screen and (max-width: 1060px) {
+        .master.kmjptb2 table{
+            display: block;
+            overflow: scroll;
+            table-layout: fixed;
+
+        }
+
+        @media only screen and (max-width: 740px) {
+        .master.kmjptb1 table{
+            display: block;
+            overflow: scroll;
+            table-layout: fixed;
+
+        }
+
+         @media only screen and (max-width: 648px) {
+        .master.kmjptb3 table{
+            display: block;
+            overflow: scroll;
+            table-layout: fixed;
+
+        }

@@ -1,0 +1,453 @@
+﻿<%@ Page Title="eTag365 Confirm Payment" Language="C#" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="eTag365.Pages.Admin.Checkout" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Page-Enter" content="blendTrans(Duration=0)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0)" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>eTag365 Confirm Payment</title>
+
+    <link rel="stylesheet" href="../../Content/bootstrap.css" />
+    <link rel="stylesheet" href="../../Content/jquery-ui.css" />
+    <link rel="stylesheet" href="../../Content/toastr.css" />
+    <link rel="stylesheet" href="../../Content/font-awesome.css" />
+    <link rel="stylesheet" href="../../Content/ionicons/ionicons.css" />
+    <link rel="stylesheet" href="../../AdminLTE/css/AdminLTE.css" />
+    <link rel="stylesheet" href="../../AdminLTE/css/skins/_all-skins.css" />
+    <link rel="stylesheet" href="../../Content/admin.css" />
+    <link type="text/css" href="../../scripts/jquery.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Font -->
+
+    <%-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">--%>
+
+    <!-- Web Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css' />
+    <link type="text/css" href="../../scripts/notification/notification.css" rel="stylesheet" />
+    <link href="../../scripts/select2/dist/css/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../../scripts/select2/dist/css/select2.css" rel="stylesheet" />
+    <link type="text/css" href="../../AdminLTE/iCheck/all.css" rel="stylesheet" />
+    <link href="../../css/Site.css" rel="stylesheet" />
+    <%--<link type="text/css" href="../../Content/morris/morris.css" rel="stylesheet" />--%>
+    <link href="../../AdminLTE/iCheck/flat/_all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../plugins/SlickNav/slicknav.css" />
+
+    <script type="text/javascript" src="../../scripts/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../../scripts/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src="../../scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../AdminLTE/js/adminlte.js"></script>
+    <script type="text/javascript" src="../../scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../../scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="../../scripts/notification/bootstrap-growl.min.js"></script>
+    <script type="text/javascript" src="../../scripts/notification/notification.js"></script>
+    <script type="text/javascript" src="../../scripts/select2/dist/js/select2.min.js"></script>
+    <script type="text/javascript" src="../../AdminLTE/iCheck/icheck.js"></script>
+    <script type="text/javascript" src="../../plugins/SlickNav/jquery.slicknav.min.js"></script>
+    <script type="text/javascript" src="../../scripts/jquery.dataTables.min.js"></script>
+    <script src="../../AppJs/CommonJS/DataBaseOperationJs.js"></script>
+    <script src="../../AppJs/Admin/Checkout.js"></script>
+    <%--<script type="text/javascript" src="https://sandbox.forte.net/checkout/v1/js"></script>--%>
+    <script type="text/javascript" src="https://checkout.forte.net/v1/js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#menu').slicknav();
+        });
+
+        $(document).ready(function () {
+            $(".tDate").datepicker({
+                dateFormat: "mm-dd-yy",
+                changeYear: true,
+                changeMonth: true
+            });
+        });
+    </script>
+    <script type="text/javascript">
+
+        if (window.innerWidth <= 350) {
+            google_ad_width = 320;
+            google_ad_height = 50;
+        } else if (window.innerWidth >= 750) {
+            google_ad_width = 728;
+            google_ad_height = 90;
+        } else {
+            google_ad_width = 468;
+            google_ad_height = 60;
+        }
+    </script>
+    <style type="text/css">
+        .nav-tabs-custom {
+            background-color: #DFE3EE;
+        }
+
+            .nav-tabs-custom > .nav-tabs {
+                border-bottom-color: initial;
+                padding: 0px 0px 0px 18px;
+                background-color: #8B9DC3;
+            }
+
+                .nav-tabs-custom > .nav-tabs > li > a, .nav-tabs-custom > .nav-tabs > li > a:hover {
+                    background: #ffffff;
+                }
+
+                .nav-tabs-custom > .nav-tabs > li > a {
+                    border-radius: 10px 10px 0px 0px;
+                }
+
+        .nav-tabs {
+            border-bottom: none;
+        }
+
+        #nav-tab > li > a.active {
+            background-color: #98cdfe;
+            color: #ffffff;
+        }
+
+        .nav-tabs-custom > .tab-content {
+            background: none;
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            padding: 10px 10px 10px 5px;
+        }
+
+        .nav-tabs-custom > .nav-tabs > li > a, .nav-tabs-custom > .nav-tabs > li > a:hover {
+            height: 56px;
+            text-align: center;
+        }
+
+        .input-validation-error {
+            border: 1px solid #ff0000;
+            background-color: #ffeeee !important;
+        }
+
+        .field-validation-error {
+            color: #ff0000 !important;
+        }
+    </style>
+    <style type="text/css">
+        .box-header.with-border {
+            border-bottom: none;
+            text-align: center;
+        }
+
+        .box {
+            position: relative;
+            background: none;
+            border-top: none;
+            margin-bottom: 20px;
+            width: 100%;
+            box-shadow: none;
+        }
+
+        .skin-blue .sidebar-menu .treeview-menu > li > a.active {
+            color: red;
+        }
+
+        .slicknav_menu {
+            display: none;
+        }
+
+        .wrapper {
+            background: #F7F7F7;
+        }
+
+        @media screen and (max-width: 767px) {
+            /* #menu is the original menu */
+            #menu {
+                display: none;
+            }
+
+            .slicknav_menu {
+                background: #8B9DC3;
+                display: block;
+                top: 230px;
+                /*top: 10px;
+				left: 150px;*/
+                position: absolute;
+                z-index: 10000;
+            }
+        }
+    </style>
+    <style type="text/css">
+        .main-footer {
+            clear: both;
+            float: left !important;
+            width: 100% !important;
+        }
+
+        .nav > li {
+            float: left;
+        }
+
+            .nav > li > a {
+                float: left;
+            }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="/home" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini">
+                    <img alt="" src="https://www.etag365.net/Images/logo.png" width="80" class="img img-responsive" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">
+                    <img alt="" src="https://www.etag365.net/Images/logo.png" width="80" class="img pull-left" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <div class="col-md-12" style="float: left; margin: 10px 0;">
+                    <h6>World Leaders in making business easier by moving data  using eTag365 NFC sticker and eTag365 Software Solutions</h6>
+                </div>
+                <div class="col-md-12" style="float: left; margin: 10px 0;">
+                    <div class="col-md-10 adBoxHeader ad-code-container">
+                    </div>
+
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <asp:Image ImageUrl="https://www.etag365.net/AdminLTE/img/avatar.png" ID="imgTopLogo" CssClass="user-image" alt="User Image" runat="server" />
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header">
+                                        <asp:Image ImageUrl="https://www.etag365.net/AdminLTE/img/avatar.png" ID="imgTopIcon" CssClass="img-circle" alt="User Image" runat="server" />
+
+                                        <% if (Session["Phone"] != null) %>
+                                        <% { %>
+                                        <p>
+                                            <%=Session["Phone"]%>
+                                            <br />
+                                            <span id="spanAccount" runat="server"></span>
+                                        </p>
+                                        <% } %>                               
+                                    </li>
+
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <span id="spanReset" runat="server"></span>
+                                        </div>
+                                        <div class="pull-right">
+                                            <span id="spanSignOut" runat="server"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree" id="menu">
+                    <li id="liHeader" runat="server" class="header"></li>
+
+                    <li class="treeview menu-open">
+                        <a href="#">
+                            <img alt="" src="https://www.etag365.net/Images/dashboard_icon.png" style="margin-right: 5px;" width="20" class="img img-responsive" />
+                            <span>User Profile</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+
+                        <ul class="treeview-menu" id="20" style="display: block;">
+                            <li id="lihome" runat="server"></li>
+                            <li id="liImport" runat="server"></li>
+                            <li id="liUser" runat="server"></li>
+                            <li id="liPrice" runat="server"></li>
+                            <li id="liBilling" runat="server"></li>
+                            <li id="liApproveBillingTransaction" runat="server"></li>
+                            <li id="liReferral" runat="server"></li>
+                            <li id="liDealer" runat="server"></li>
+                            <li id="liDealerCommission" runat="server"></li>
+                            <li id="liDealerAccounts" runat="server"></li>
+                            <li id="liDealerProfile" runat="server"></li>
+                            <li id="liPayCommission" runat="server"></li>
+                            <li id="liApproveCommission" runat="server"></li>
+                            <li id="liGroupCode" runat="server"></li>
+                            <li id="liEmailSetup" runat="server"></li>
+                            <li id="liEmailSchedule" runat="server"></li>
+                            <li id="liSystemData" runat="server"></li>
+                            <li id="liGlobalSystemInfo" runat="server"></li>
+                            <li id="lireset" runat="server"></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+                <div class="box">
+                    <div class="box-header with-border CommonHeader col-md-12">
+                        <h3 class="box-title" id="lblHeadline" runat="server">eTag365 Confirm Payment</h3>
+                    </div>
+
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <div class="box box-primary">
+                            <!-- /.box-header -->
+                            <!-- form start -->
+                            <div class="box-body">
+
+                                <input type="hidden" id="pg_api_login_id" value="<%=api_loginID%>" />
+                                <input type="hidden" id="pg_utc_time" value="<%=utc_time%>" />
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group row" style="margin-top: 10px;">
+                                            <div class="col-sm-3">
+                                                <label class=" col-form-label">Group Code:</label>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input id="groupcode" disabled="disabled" type="text" placeholder="Group Code" class="form-control" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div style="float: left; width: 100%">
+                                                    <span>Plan Charge: $</span>
+                                                    <span id="PlanCharge">0.00</span>
+                                                </div>
+                                                <div style="float: left; width: 100%">
+                                                    <span>Storage Charge: $</span>
+                                                    <span id="storageCharge">0.00</span>
+                                                </div>
+                                                <div style="float: left; width: 100%">
+                                                    <span>Sub-Total Charge: $</span>
+                                                    <span id="subTotalCharge">0.00</span>
+                                                </div>
+                                                <div style="float: left; width: 100%">
+                                                    <span>Discount (</span><span id="percentRatio"></span><span>%): $</span>
+                                                    <span id="Discount">0.00</span>
+                                                </div>
+                                                <div style="float: left; width: 100%">
+                                                    <span>Total Charge: $</span>
+                                                    <span id="TotalAmountCharge">0.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row" style="margin-top: 10px;">
+                                            <div class="col-sm-6">
+                                                <label class=" col-form-label">Total Amount payable:</label>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                $<%--<span id="TotalAmountChargeRe">0.00</span>--%>
+                                                <input type="text" disabled="disabled" id="TotalAmountChargeRe" value="<%= sTotal%>" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <div class="col-md-12">
+                                    <div class="col-md-3 btnSubmitDiv">
+                                        <input type="button" class="btn btn-success" id="btnExit" style="background-color: #3B5998; float: left; margin-right: 20px;" value="Cancel" />
+                                    </div>
+
+                                    <div class="col-md-6 btnSubmitDiv">
+                                        <button id="btnSubmit"
+                                            api_login_id="<%=api_loginID%>"
+                                            method="sale"
+                                            version_number="1.0"
+                                            utc_time="<%=utc_time%>"
+                                            card_number=""
+                                            account_number=""
+                                            expire=""
+                                            cvv=""
+                                            routing_number=""
+                                            account_number2=""
+                                            account_type=""
+                                            billing_company_name=""
+                                            billing_name=""
+                                            billing_street_line1=""
+                                            billing_street_line2=""
+                                            billing_locality=""
+                                            billing_region=""
+                                            billing_postal_code=""
+                                            billing_phone_number=""
+                                            billing_email_address=""
+                                            allowed_methods=""
+                                            signature="<%= pay_now_single_return_string%>"
+                                            total_amount_attr="edit"
+                                            total_amount="<%= sTotal%>"
+                                            callback="oncallback"
+                                            order_number="A1234"
+                                            button_text="Confirm Payment"
+                                            class="btnPaymentGetway">
+                                            Confirm Payment
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3 btnSubmitDiv">
+                                        <input type="button" class="btn btn-success" id="btnGo" style="background-color: #3B5998; float: left; margin-right: 20px;" value="Continue" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+            <ul id="navFooter" class="nav">
+                <li>
+                    <a href="/">
+                        <img src="https://www.etag365.net/Images/logo.png" width="50" class="img img-responsive" alt="Logo" />
+                    </a>
+                </li>
+
+                <li><a target="_blank" href="https://etag365.com/howitworks">How It Works</a></li>
+                <li><a target="_blank" href="#">Get Started</a></li>
+                <li><a target="_blank" href="https://etag365.com/usertermsconditions">Terms & Conditions</a></li>
+                <li><a target="_blank" href="https://www.etag365.com/Customer/PolicyAndProcedures">Privacy</a></li>
+                <li><a target="_blank" href="https://www.etag365.com/contact">Contact</a></li>
+                <li><a target="_blank" href="https://www.etag365.com">eTag365</a></li>
+            </ul>
+        </div>
+        <!-- /.content-wrapper -->
+
+    </div>
+
+
+</body>
+
+</html>

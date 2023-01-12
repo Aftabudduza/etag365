@@ -1,0 +1,13 @@
+admin@eproperty365.com/123456
+
+owner1@eproperty365.com/123456
+
+manager1@eproperty365.com/123456
+
+maintenance1@eproperty365.com/123456
+
+resident1@eproperty365.com/123456
+
+commercial1@eproperty365.com/123456
+
+condo1@eproperty365.com/123456

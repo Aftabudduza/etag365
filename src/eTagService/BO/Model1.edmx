@@ -1,0 +1,2481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eTag365Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BillingPayment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="20" />
+          <Property Name="UserPhone" Type="varchar" MaxLength="30" />
+          <Property Name="SubscriptionType" Type="varchar" MaxLength="15" />
+          <Property Name="IsStorageSubscription" Type="bit" />
+          <Property Name="IsReceivedCommissions" Type="bit" />
+          <Property Name="SubscriptionExpiredOn" Type="datetime" />
+          <Property Name="StorageExpiredOn" Type="datetime" />
+          <Property Name="YTD_Contact_Export_Limit" Type="varchar" MaxLength="10" />
+          <Property Name="MTD_Contact_Import_Limit" Type="varchar" MaxLength="10" />
+          <Property Name="Contact_Storage_Limit" Type="varchar" MaxLength="10" />
+          <Property Name="IsBillingCycleMonthly" Type="bit" />
+          <Property Name="IsBillingComplete" Type="bit" />
+          <Property Name="ReferralStartDate" Type="datetime" />
+          <Property Name="ReferralEndDate" Type="datetime" />
+          <Property Name="IsCommissionMonthly" Type="bit" />
+          <Property Name="YTD_Commission" Type="varchar" MaxLength="20" />
+          <Property Name="MTD_Commission" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Remarks" Type="varchar" MaxLength="20" />
+          <Property Name="YTD_ReferralUser" Type="varchar" MaxLength="20" />
+          <Property Name="Total_ReferralUser" Type="varchar" MaxLength="20" />
+          <Property Name="ReferralRecycleDate" Type="datetime" />
+          <Property Name="LastReferralCalculatedDate" Type="datetime" />
+          <Property Name="IsRecurring" Type="bit" />
+          <Property Name="BasicAmount" Type="varchar" MaxLength="20" />
+          <Property Name="StorageAmount" Type="varchar" MaxLength="20" />
+          <Property Name="SubTotalCharge" Type="varchar" MaxLength="20" />
+          <Property Name="Promocode" Type="varchar" MaxLength="100" />
+          <Property Name="DiscountPercentage" Type="varchar" MaxLength="20" />
+          <Property Name="Discount" Type="varchar" MaxLength="20" />
+          <Property Name="GrossAmount" Type="varchar" MaxLength="20" />
+          <Property Name="CheckingAccountProcessingFee" Type="varchar" MaxLength="20" />
+          <Property Name="NetAmount" Type="varchar" MaxLength="20" />
+          <Property Name="NoOfContact" Type="varchar" MaxLength="20" />
+          <Property Name="ContactMultiplier" Type="varchar" MaxLength="20" />
+          <Property Name="TotalContact" Type="varchar" MaxLength="20" />
+          <Property Name="PerUnitCharge" Type="varchar" MaxLength="20" />
+          <Property Name="MonthlyCharge" Type="varchar" MaxLength="20" />
+          <Property Name="IsAgree" Type="bit" />
+        </EntityType>
+        <EntityType Name="CalendarEntry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="100" />
+          <Property Name="UserId" Type="varchar" MaxLength="20" />
+          <Property Name="UserCode" Type="varchar" MaxLength="20" />
+          <Property Name="Timezone" Type="varchar" MaxLength="20" />
+          <Property Name="MeetingDate" Type="date" />
+          <Property Name="GMTTimeStart" Type="datetime" />
+          <Property Name="MeetingStartTime" Type="varchar" MaxLength="100" />
+          <Property Name="GMTTimeEnd" Type="datetime" />
+          <Property Name="MeetingEndTime" Type="varchar" MaxLength="100" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="TimeZoneDifference" Type="int" />
+          <Property Name="IsAvailable" Type="tinyint" />
+          <Property Name="MeetingStartTimeShow" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CalendarSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MeetingId" Type="bigint" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="100" />
+          <Property Name="UserId" Type="varchar" MaxLength="20" />
+          <Property Name="ToUserFirstName" Type="varchar" MaxLength="100" />
+          <Property Name="ToUserLastName" Type="varchar" MaxLength="100" />
+          <Property Name="ToUserEmail" Type="varchar" MaxLength="100" />
+          <Property Name="ToUserPhone" Type="varchar" MaxLength="30" />
+          <Property Name="ToUserCompany" Type="varchar" MaxLength="100" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+          <Property Name="Timezone" Type="varchar" MaxLength="20" />
+          <Property Name="TimeZoneDifference" Type="int" />
+          <Property Name="MeetingDate" Type="date" />
+          <Property Name="GMTTimeStart" Type="datetime" />
+          <Property Name="MeetingStartTime" Type="varchar" MaxLength="100" />
+          <Property Name="GMTTimeEnd" Type="datetime" />
+          <Property Name="MeetingEndTime" Type="varchar" MaxLength="100" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="IsBooked" Type="tinyint" />
+          <Property Name="IsSentEmail" Type="tinyint" />
+          <Property Name="MeetingStartTimeShow" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Child">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentId" Type="int" Nullable="false" />
+          <Property Name="UserDefinedId" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="300" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="CreatedBy" Type="smallint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="smallint" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="OwnerId" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ContactInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="150" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="30" />
+          <Property Name="State" Type="varchar" MaxLength="20" />
+          <Property Name="City" Type="varchar" MaxLength="30" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="Phone" Type="varchar" MaxLength="30" />
+          <Property Name="WorkPhone" Type="varchar" MaxLength="30" />
+          <Property Name="WorkPhoneExt" Type="varchar" MaxLength="30" />
+          <Property Name="Fax" Type="varchar" MaxLength="30" />
+          <Property Name="Website" Type="varchar" MaxLength="100" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="ProfileLogo" Type="varchar" MaxLength="300" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="IsOverwrite" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserTypeContact" Type="varchar" MaxLength="30" />
+          <Property Name="Other" Type="varchar" MaxLength="300" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="RefPhone" Type="varchar" MaxLength="30" />
+          <Property Name="Title" Type="varchar" MaxLength="100" />
+          <Property Name="TypeOfContact" Type="varchar" MaxLength="300" />
+          <Property Name="Memo" Type="varchar" MaxLength="250" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="5" />
+          <Property Name="Longitude" Type="varchar" MaxLength="30" />
+          <Property Name="Latitude" Type="varchar" MaxLength="30" />
+          <Property Name="IsEmailFlow" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iso" Type="char" MaxLength="2" />
+          <Property Name="name" Type="nvarchar" MaxLength="80" />
+          <Property Name="nicename" Type="nvarchar" MaxLength="80" />
+          <Property Name="iso3" Type="char" MaxLength="3" />
+          <Property Name="numcode" Type="smallint" />
+          <Property Name="phonecode" Type="int" />
+        </EntityType>
+        <EntityType Name="Dealer_SalesPartner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serialCode" Type="varchar" MaxLength="20" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="address1" Type="varchar" MaxLength="100" />
+          <Property Name="address2" Type="varchar" MaxLength="100" />
+          <Property Name="city" Type="varchar" MaxLength="30" />
+          <Property Name="stateId" Type="varchar" MaxLength="20" />
+          <Property Name="countryId" Type="varchar" MaxLength="20" />
+          <Property Name="region" Type="varchar" MaxLength="30" />
+          <Property Name="zipCode" Type="varchar" MaxLength="30" />
+          <Property Name="primaryPhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="mobilePhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="routingNo" Type="varchar" MaxLength="25" />
+          <Property Name="accountNo" Type="varchar" MaxLength="25" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="userType" Type="int" />
+          <Property Name="joinDate" Type="datetime" />
+          <Property Name="commissionRate" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="createDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Dealer_SalesPartner_DetailsZipCodeCoverage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dealerSalesPartnerId" Type="varchar" MaxLength="20" />
+          <Property Name="zipCode" Type="varchar" MaxLength="30" />
+          <Property Name="commissionRate" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="EmailLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonEmail" Type="varchar" MaxLength="50" />
+          <Property Name="FromEmail" Type="varchar" MaxLength="50" />
+          <Property Name="EmailNumber" Type="int" />
+          <Property Name="EmailSentOn" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
+          <Property Name="TemplateId" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="EmailSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonName" Type="varchar" MaxLength="100" />
+          <Property Name="PersonEmail" Type="varchar" MaxLength="50" />
+          <Property Name="FromEmail" Type="varchar" MaxLength="50" />
+          <Property Name="IsLoop" Type="bit" />
+          <Property Name="Days" Type="varchar" MaxLength="3" />
+          <Property Name="IsZeroMailSent" Type="bit" />
+          <Property Name="ZeroEmailSentOn" Type="datetime" />
+          <Property Name="LastEmailNumber" Type="int" />
+          <Property Name="LastEmailSentOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Category" Type="varchar" MaxLength="30" />
+          <Property Name="Type" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="EmailSetup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="20" />
+          <Property Name="TemplateNo" Type="varchar" MaxLength="3" />
+          <Property Name="Category" Type="varchar" MaxLength="30" />
+          <Property Name="Type" Type="varchar" MaxLength="300" />
+          <Property Name="Subject" Type="varchar" MaxLength="300" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Greetings" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmailUnsubscribe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TemplateNo" Type="varchar" MaxLength="5" />
+          <Property Name="UserId" Type="varchar" MaxLength="15" />
+          <Property Name="TemplateId" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="FinancialTransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Serial" Type="varchar" MaxLength="20" />
+          <Property Name="AccountType" Type="varchar" MaxLength="20" />
+          <Property Name="LedgerCode" Type="varchar" MaxLength="20" />
+          <Property Name="InvoiceNo" Type="varchar" MaxLength="20" />
+          <Property Name="RefId" Type="varchar" MaxLength="20" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Debit" Type="money" />
+          <Property Name="Credit" Type="money" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Remarks" Type="varchar" MaxLength="20" />
+          <Property Name="EntryType" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'eTag365.dbo.GlobalID' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GlobalID">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="CurrentID" />
+          </Key>
+          <Property Name="ObjectID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IDForYear" Type="int" />
+          <Property Name="IDForMonth" Type="int" />
+          <Property Name="IDForDate" Type="datetime" />
+          <Property Name="CurrentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupCode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupCodeNo" Type="varchar" MaxLength="200" />
+          <Property Name="GroupName" Type="varchar" MaxLength="200" />
+          <Property Name="GroupDescription" Type="varchar(max)" />
+          <Property Name="GroupPlan" Type="varchar" MaxLength="15" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BillEvery" Type="varchar" MaxLength="15" />
+          <Property Name="IsForever" Type="bit" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="IsRequiredACHInfo" Type="bit" />
+          <Property Name="CreditPhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="Rewards" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GroupCodeFor" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DeletedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ImportContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="IsImport" Type="bit" />
+          <Property Name="IsExport" Type="bit" />
+          <Property Name="NoOfImport" Type="int" />
+          <Property Name="NoOfExport" Type="int" />
+          <Property Name="TranDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Master">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserDefinedId" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="smallint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="smallint" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PaymentHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromUser" Type="varchar" MaxLength="20" />
+          <Property Name="ToUser" Type="varchar" MaxLength="20" />
+          <Property Name="FromUserType" Type="int" />
+          <Property Name="ToUserType" Type="int" />
+          <Property Name="AccountName" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="30" />
+          <Property Name="State" Type="varchar" MaxLength="20" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="CardNumber" Type="varchar" MaxLength="20" />
+          <Property Name="CVS" Type="varchar" MaxLength="10" />
+          <Property Name="Month" Type="varchar" MaxLength="20" />
+          <Property Name="Year" Type="varchar" MaxLength="5" />
+          <Property Name="LastFourDigitCard" Type="varchar" MaxLength="10" />
+          <Property Name="IsCheckingAccount" Type="bit" />
+          <Property Name="RoutingNo" Type="varchar" MaxLength="15" />
+          <Property Name="AccountNo" Type="varchar" MaxLength="15" />
+          <Property Name="CheckNo" Type="varchar" MaxLength="15" />
+          <Property Name="AccountType" Type="varchar" MaxLength="15" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="AuthorizationCode" Type="varchar" MaxLength="20" />
+          <Property Name="TransactionCode" Type="varchar" MaxLength="200" />
+          <Property Name="TransactionDescription" Type="varchar" MaxLength="100" />
+          <Property Name="Getway" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Serial" Type="varchar" MaxLength="20" />
+          <Property Name="TransactionType" Type="varchar" MaxLength="50" />
+          <Property Name="LedgerCode" Type="varchar" MaxLength="20" />
+          <Property Name="Remarks" Type="varchar" MaxLength="20" />
+          <Property Name="SubscriptionType" Type="varchar" MaxLength="15" />
+          <Property Name="IsStorageSubscription" Type="bit" />
+          <Property Name="IsReceivedCommissions" Type="bit" />
+          <Property Name="YTD_Commission" Type="varchar" MaxLength="20" />
+          <Property Name="MTD_Commission" Type="varchar" MaxLength="20" />
+          <Property Name="IsRecurring" Type="bit" />
+          <Property Name="YTD_Contact_Export_Limit" Type="varchar" MaxLength="10" />
+          <Property Name="MTD_Contact_Import_Limit" Type="varchar" MaxLength="10" />
+          <Property Name="Contact_Storage_Limit" Type="varchar" MaxLength="10" />
+          <Property Name="IsBillingCycleMonthly" Type="bit" />
+          <Property Name="BasicAmount" Type="varchar" MaxLength="20" />
+          <Property Name="StorageAmount" Type="varchar" MaxLength="20" />
+          <Property Name="SubTotalCharge" Type="varchar" MaxLength="20" />
+          <Property Name="Promocode" Type="varchar" MaxLength="100" />
+          <Property Name="DiscountPercentage" Type="varchar" MaxLength="20" />
+          <Property Name="Discount" Type="varchar" MaxLength="20" />
+          <Property Name="CheckingAccountProcessingFee" Type="varchar" MaxLength="20" />
+          <Property Name="GrossAmount" Type="varchar" MaxLength="20" />
+          <Property Name="NetAmount" Type="varchar" MaxLength="20" />
+          <Property Name="DebitAmount" Type="money" />
+          <Property Name="CreditAmount" Type="money" />
+          <Property Name="NoOfContact" Type="varchar" MaxLength="20" />
+          <Property Name="ContactMultiplier" Type="varchar" MaxLength="20" />
+          <Property Name="TotalContact" Type="varchar" MaxLength="20" />
+          <Property Name="PerUnitCharge" Type="varchar" MaxLength="20" />
+          <Property Name="MonthlyCharge" Type="varchar" MaxLength="20" />
+          <Property Name="IsAgree" Type="bit" />
+        </EntityType>
+        <EntityType Name="PaymentInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="20" />
+          <Property Name="AccountName" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="25" />
+          <Property Name="State" Type="varchar" MaxLength="20" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="CardNumber" Type="varchar" MaxLength="25" />
+          <Property Name="CVS" Type="varchar" MaxLength="5" />
+          <Property Name="Month" Type="varchar" MaxLength="5" />
+          <Property Name="Year" Type="varchar" MaxLength="5" />
+          <Property Name="LastFourDigitCard" Type="varchar" MaxLength="5" />
+          <Property Name="IsCheckingAccount" Type="bit" />
+          <Property Name="RoutingNo" Type="varchar" MaxLength="25" />
+          <Property Name="AccountNo" Type="varchar" MaxLength="25" />
+          <Property Name="CheckNo" Type="varchar" MaxLength="25" />
+          <Property Name="IsRecurring" Type="bit" />
+          <Property Name="IsAgree" Type="bit" />
+        </EntityType>
+        <EntityType Name="ReferralAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GiverPhone" Type="varchar" MaxLength="20" />
+          <Property Name="GetterPhone" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="YTD_Commission" Type="varchar" MaxLength="20" />
+          <Property Name="MTD_Commission" Type="varchar" MaxLength="20" />
+          <Property Name="YTD_CommissionOwed" Type="varchar" MaxLength="20" />
+          <Property Name="MTD_CommissionOwed" Type="varchar" MaxLength="20" />
+          <Property Name="YTD_CommissionPaid" Type="varchar" MaxLength="20" />
+          <Property Name="MTD_CommissionPaid" Type="varchar" MaxLength="20" />
+          <Property Name="LastTransactionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ReferralTransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GiverPhone" Type="varchar" MaxLength="20" />
+          <Property Name="GetterPhone" Type="varchar" MaxLength="20" />
+          <Property Name="TransactionDate" Type="datetime" />
+          <Property Name="PayorAmount" Type="money" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Month" Type="varchar" MaxLength="20" />
+          <Property Name="Year" Type="varchar" MaxLength="5" />
+          <Property Name="Remarks" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CommissionMonthDate" Type="datetime" />
+          <Property Name="IsPaid" Type="bit" />
+          <Property Name="CommissionFor" Type="varchar" MaxLength="10" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="STATE" />
+          </Key>
+          <Property Name="STATE" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="STATENAME" Type="varchar" MaxLength="50" />
+          <Property Name="SalesTaxRate" Type="numeric" Precision="6" Scale="3" />
+          <Property Name="FreightTaxable" Type="char" MaxLength="1" />
+          <Property Name="ShippingSurcharge" Type="numeric" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="SystemInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="20" />
+          <Property Name="Website" Type="varchar" MaxLength="40" />
+          <Property Name="EmailServer1" Type="varchar" MaxLength="40" />
+          <Property Name="EmailUser1" Type="varchar" MaxLength="40" />
+          <Property Name="EmailPassword1" Type="nvarchar" MaxLength="15" />
+          <Property Name="EmailServer2" Type="varchar" MaxLength="40" />
+          <Property Name="EmailUser2" Type="varchar" MaxLength="40" />
+          <Property Name="EmailPassword2" Type="nvarchar" MaxLength="15" />
+          <Property Name="EmailServer3" Type="varchar" MaxLength="40" />
+          <Property Name="EmailUser3" Type="varchar" MaxLength="40" />
+          <Property Name="EmailPassword3" Type="nvarchar" MaxLength="15" />
+          <Property Name="EmailServer4" Type="varchar" MaxLength="40" />
+          <Property Name="EmailUser4" Type="varchar" MaxLength="40" />
+          <Property Name="EmailPassword4" Type="nvarchar" MaxLength="15" />
+          <Property Name="SecurityLink" Type="varchar" MaxLength="40" />
+          <Property Name="SecurityKey" Type="varchar" MaxLength="40" />
+          <Property Name="SecurityUser" Type="varchar" MaxLength="40" />
+          <Property Name="SecurityPassword" Type="nvarchar" MaxLength="15" />
+          <Property Name="CreditCardLink" Type="varchar" MaxLength="40" />
+          <Property Name="CreditCardKey" Type="varchar" MaxLength="40" />
+          <Property Name="CreditCardUser" Type="varchar" MaxLength="40" />
+          <Property Name="CreditCardPassword" Type="nvarchar" MaxLength="15" />
+          <Property Name="DocumentLink" Type="varchar" MaxLength="40" />
+          <Property Name="ApplicationFee" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FeeType" Type="smallint" />
+          <Property Name="FeePercentage" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FeeFlatAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="IncludeProcessFees" Type="bit" />
+          <Property Name="TanentPayFees" Type="bit" />
+          <Property Name="CreditCardProcessFees" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="OneTimePay" Type="bit" />
+          <Property Name="RecurringPay" Type="bit" />
+          <Property Name="IsGlobalSystem" Type="bit" />
+          <Property Name="FeeTypeCheck" Type="smallint" />
+          <Property Name="FeePercentageCheck" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FeeFlatAmountCheck" Type="decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="UserLog_Data">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SessionId" Type="nvarchar" MaxLength="500" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="LoginDate" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="LastUpdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserPricing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserPlans" Type="varchar" MaxLength="20" />
+          <Property Name="MonthlyCosts" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Billed" Type="varchar" MaxLength="20" />
+          <Property Name="ContactsImportsMonthly" Type="varchar" MaxLength="10" />
+          <Property Name="ContactExportsYearly" Type="varchar" MaxLength="10" />
+          <Property Name="StoredContacts" Type="varchar" MaxLength="10" />
+          <Property Name="Contacts_500" Type="varchar" MaxLength="10" />
+          <Property Name="Contacts_10000" Type="varchar" MaxLength="10" />
+          <Property Name="ReferralCommissions" Type="bit" />
+          <Property Name="eTag365NFCChip" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="30" />
+          <Property Name="Serial" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="30" />
+          <Property Name="PhoneVerifyCode" Type="varchar" MaxLength="30" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="ProfileLogo" Type="varchar" MaxLength="300" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="CompanyLogo" Type="varchar" MaxLength="300" />
+          <Property Name="WorkPhone" Type="varchar" MaxLength="30" />
+          <Property Name="WorkPhoneExt" Type="varchar" MaxLength="30" />
+          <Property Name="Fax" Type="varchar" MaxLength="30" />
+          <Property Name="IsPhoneVerified" Type="bit" />
+          <Property Name="IsNewUser" Type="bit" />
+          <Property Name="IsAgree" Type="bit" />
+          <Property Name="DoNotEmbedProfile" Type="bit" />
+          <Property Name="DoNotEmbedCompany" Type="bit" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="150" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="20" />
+          <Property Name="City" Type="varchar" MaxLength="30" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="Other" Type="varchar" MaxLength="300" />
+          <Property Name="DatabaseName" Type="varchar" MaxLength="50" />
+          <Property Name="DatabaseLocation" Type="varchar" MaxLength="200" />
+          <Property Name="UserTypeContact" Type="varchar" MaxLength="20" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CanLogin" Type="bit" />
+          <Property Name="IsUserProfileComplete" Type="bit" />
+          <Property Name="IsBillingComplete" Type="bit" />
+          <Property Name="IsOverwrite" Type="bit" />
+          <Property Name="Website" Type="varchar" MaxLength="100" />
+          <Property Name="Category" Type="varchar" MaxLength="30" />
+          <Property Name="YTD_Contact_Export_Limit" Type="varchar" MaxLength="10" />
+          <Property Name="YTD_Contact_Export" Type="varchar" MaxLength="10" />
+          <Property Name="MTD_Contact_Import" Type="varchar" MaxLength="10" />
+          <Property Name="MTD_Contact_Import_Limit" Type="varchar" MaxLength="10" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="RefPhone" Type="varchar" MaxLength="30" />
+          <Property Name="Title" Type="varchar" MaxLength="100" />
+          <Property Name="TypeOfContact" Type="varchar" MaxLength="30" />
+          <Property Name="SubscriptionType" Type="varchar" MaxLength="20" />
+          <Property Name="SubscriptionExpiredOn" Type="datetime" />
+          <Property Name="StorageExpiredOn" Type="datetime" />
+          <Property Name="IsStorageSubscription" Type="bit" />
+          <Property Name="LastImportedDate" Type="datetime" />
+          <Property Name="LastExportedDate" Type="datetime" />
+          <Property Name="Contact_Storage_Limit" Type="varchar" MaxLength="10" />
+          <Property Name="IsSentMail" Type="bit" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="5" />
+          <Property Name="Longitude" Type="varchar" MaxLength="30" />
+          <Property Name="Latitude" Type="varchar" MaxLength="30" />
+          <Property Name="IsEmailFlow" Type="bit" />
+          <Property Name="EmailFlowCreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserType" Type="varchar" MaxLength="50" />
+          <Property Name="UserDefineId" Type="int" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="andVerCode" Type="varchar" MaxLength="20" />
+          <Property Name="andVerLabel" Type="varchar" MaxLength="20" />
+          <Property Name="andMustUpdate" Type="bit" />
+          <Property Name="andVerNote" Type="varchar(max)" />
+          <Property Name="andLink" Type="varchar" MaxLength="255" />
+          <Property Name="iOsVerCode" Type="varchar" MaxLength="20" />
+          <Property Name="iOsVerLabel" Type="varchar" MaxLength="20" />
+          <Property Name="iOsMustUpdate" Type="bit" />
+          <Property Name="iOsLink" Type="varchar" MaxLength="255" />
+          <Property Name="iOsVerNote" Type="varchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_dbo_Child_dbo_Master_MasterId">
+          <End Role="Master" Type="Self.Master" Multiplicity="1" />
+          <End Role="Child" Type="Self.Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Master">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_GetID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ObjectID" Type="varchar" Mode="In" />
+          <Parameter Name="ItemID" Type="varchar" Mode="In" />
+          <Parameter Name="IDForYear" Type="int" Mode="In" />
+          <Parameter Name="IDForMonth" Type="int" Mode="In" />
+          <Parameter Name="IDForDate" Type="datetime" Mode="In" />
+          <Parameter Name="NewID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_Calculate_Commission_Dealer_Monthly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_Calculate_Commission_User_Monthly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetCommissionAmount_All_DateWise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="varchar" Mode="In" />
+          <Parameter Name="EndDate" Type="varchar" Mode="In" />
+          <Parameter Name="GetterPhoneNo" Type="varchar" Mode="In" />
+          <Parameter Name="commissionFor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetCommissionByUserType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="phoneNo" Type="varchar" Mode="In" />
+          <Parameter Name="commissionFor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetCommissionDetailsByUserType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="commissionFor" Type="varchar" Mode="In" />
+          <Parameter Name="Month" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+          <Parameter Name="Ispaid" Type="bit" Mode="In" />
+          <Parameter Name="phoneNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetCommissionDetailsForDealer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Month" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+          <Parameter Name="Ispaid" Type="bit" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetCommissionForDealerChange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_getContactStorageBalance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_getCurrentMonthContactImport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_getCurrentYearContactExport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetDelarInfoByPhoneNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetDueCommissionByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="phoneNo" Type="varchar" Mode="In" />
+          <Parameter Name="commissionFor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetGroupCodeByUserType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="GroupCodeFor" Type="varchar" Mode="In" />
+          <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_getPhoneNoByAutoComplete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="autocompleteText" Type="varchar" Mode="In" />
+          <Parameter Name="GroupCodeFor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetUserInfoByDealer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="phoneNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ImportToContact" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="createdBy" Type="varchar" Mode="In" />
+          <Parameter Name="TypeOfContact" Type="varchar" Mode="In" />
+          <Parameter Name="balance" Type="varchar" Mode="In" />
+          <Parameter Name="Mass" Type="varchar" Mode="InOut" />
+          <Parameter Name="error" Type="varchar(max)" Mode="InOut" />
+        </Function>
+        <Function Name="usp_UpdateUserProfileEmailAndPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="MobileNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_UpdateUserProfileForExportData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="createdBy" Type="varchar" Mode="In" />
+          <Parameter Name="NoOfExport" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="eTag365ModelStoreContainer">
+          <EntitySet Name="BillingPayment" EntityType="Self.BillingPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CalendarEntry" EntityType="Self.CalendarEntry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CalendarSchedule" EntityType="Self.CalendarSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactInformation" EntityType="Self.ContactInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dealer_SalesPartner" EntityType="Self.Dealer_SalesPartner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dealer_SalesPartner_DetailsZipCodeCoverage" EntityType="Self.Dealer_SalesPartner_DetailsZipCodeCoverage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailLog" EntityType="Self.EmailLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailSchedule" EntityType="Self.EmailSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailSetup" EntityType="Self.EmailSetup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailUnsubscribe" EntityType="Self.EmailUnsubscribe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinancialTransaction" EntityType="Self.FinancialTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupCode" EntityType="Self.GroupCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImportContact" EntityType="Self.ImportContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Master" EntityType="Self.Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentHistory" EntityType="Self.PaymentHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentInformation" EntityType="Self.PaymentInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReferralAccount" EntityType="Self.ReferralAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReferralTransaction" EntityType="Self.ReferralTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemInformation" EntityType="Self.SystemInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLog_Data" EntityType="Self.UserLog_Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPricing" EntityType="Self.UserPricing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Version" EntityType="Self.Version" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GlobalID" EntityType="Self.GlobalID" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GlobalID].[ObjectID] AS [ObjectID], 
+    [GlobalID].[ItemID] AS [ItemID], 
+    [GlobalID].[IDForYear] AS [IDForYear], 
+    [GlobalID].[IDForMonth] AS [IDForMonth], 
+    [GlobalID].[IDForDate] AS [IDForDate], 
+    [GlobalID].[CurrentID] AS [CurrentID]
+    FROM [dbo].[GlobalID] AS [GlobalID]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_dbo_Child_dbo_Master_MasterId" Association="Self.FK_dbo_Child_dbo_Master_MasterId">
+            <End Role="Master" EntitySet="Master" />
+            <End Role="Child" EntitySet="Child" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eTag365Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BillingPayment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SubscriptionType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IsStorageSubscription" Type="Boolean" />
+          <Property Name="IsReceivedCommissions" Type="Boolean" />
+          <Property Name="SubscriptionExpiredOn" Type="DateTime" Precision="3" />
+          <Property Name="StorageExpiredOn" Type="DateTime" Precision="3" />
+          <Property Name="YTD_Contact_Export_Limit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MTD_Contact_Import_Limit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Storage_Limit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsBillingCycleMonthly" Type="Boolean" />
+          <Property Name="IsBillingComplete" Type="Boolean" />
+          <Property Name="ReferralStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ReferralEndDate" Type="DateTime" Precision="3" />
+          <Property Name="IsCommissionMonthly" Type="Boolean" />
+          <Property Name="YTD_Commission" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MTD_Commission" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="YTD_ReferralUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Total_ReferralUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ReferralRecycleDate" Type="DateTime" Precision="3" />
+          <Property Name="LastReferralCalculatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsRecurring" Type="Boolean" />
+          <Property Name="BasicAmount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StorageAmount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubTotalCharge" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Promocode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountPercentage" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Discount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GrossAmount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CheckingAccountProcessingFee" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NetAmount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfContact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ContactMultiplier" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TotalContact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PerUnitCharge" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MonthlyCharge" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsAgree" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CalendarEntry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Timezone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MeetingDate" Type="DateTime" Precision="0" />
+          <Property Name="GMTTimeStart" Type="DateTime" Precision="3" />
+          <Property Name="MeetingStartTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GMTTimeEnd" Type="DateTime" Precision="3" />
+          <Property Name="MeetingEndTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="TimeZoneDifference" Type="Int32" />
+          <Property Name="IsAvailable" Type="Byte" />
+          <Property Name="MeetingStartTimeShow" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CalendarSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MeetingId" Type="Int64" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ToUserFirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ToUserLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ToUserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ToUserPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ToUserCompany" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Timezone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TimeZoneDifference" Type="Int32" />
+          <Property Name="MeetingDate" Type="DateTime" Precision="0" />
+          <Property Name="GMTTimeStart" Type="DateTime" Precision="3" />
+          <Property Name="MeetingStartTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GMTTimeEnd" Type="DateTime" Precision="3" />
+          <Property Name="MeetingEndTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="IsBooked" Type="Byte" />
+          <Property Name="IsSentEmail" Type="Byte" />
+          <Property Name="MeetingStartTimeShow" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Child">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="UserDefinedId" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int16" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int16" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="OwnerId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Master" Relationship="Self.FK_dbo_Child_dbo_Master_MasterId" FromRole="Child" ToRole="Master" />
+        </EntityType>
+        <EntityType Name="ContactInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="WorkPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="WorkPhoneExt" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProfileLogo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsOverwrite" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserTypeContact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Other" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="RefPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TypeOfContact" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Memo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsEmailFlow" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="nicename" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="iso3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="numcode" Type="Int16" />
+          <Property Name="phonecode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Dealer_SalesPartner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serialCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="stateId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="countryId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="region" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="zipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="primaryPhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mobilePhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="routingNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="accountNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userType" Type="Int32" />
+          <Property Name="joinDate" Type="DateTime" Precision="3" />
+          <Property Name="commissionRate" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Dealer_SalesPartner_DetailsZipCodeCoverage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dealerSalesPartnerId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="zipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="commissionRate" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="EmailLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FromEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailNumber" Type="Int32" />
+          <Property Name="EmailSentOn" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TemplateId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EmailSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PersonEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FromEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsLoop" Type="Boolean" />
+          <Property Name="Days" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="IsZeroMailSent" Type="Boolean" />
+          <Property Name="ZeroEmailSentOn" Type="DateTime" Precision="3" />
+          <Property Name="LastEmailNumber" Type="Int32" />
+          <Property Name="LastEmailSentOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Category" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EmailSetup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TemplateNo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Greetings" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EmailUnsubscribe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TemplateId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FinancialTransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Serial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AccountType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LedgerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RefId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Debit" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Credit" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EntryType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GroupCode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupCodeNo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="GroupName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="GroupDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GroupPlan" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BillEvery" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IsForever" Type="Boolean" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="IsRequiredACHInfo" Type="Boolean" />
+          <Property Name="CreditPhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Rewards" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GroupCodeFor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ImportContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="IsImport" Type="Boolean" />
+          <Property Name="IsExport" Type="Boolean" />
+          <Property Name="NoOfImport" Type="Int32" />
+          <Property Name="NoOfExport" Type="Int32" />
+          <Property Name="TranDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Master">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserDefinedId" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int16" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int16" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Child" Relationship="Self.FK_dbo_Child_dbo_Master_MasterId" FromRole="Master" ToRole="Child" />
+        </EntityType>
+        <EntityType Name="PaymentHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ToUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FromUserType" Type="Int32" />
+          <Property Name="ToUserType" Type="Int32" />
+          <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CVS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Month" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="LastFourDigitCard" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsCheckingAccount" Type="Boolean" />
+          <Property Name="RoutingNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AccountNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CheckNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AccountType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="AuthorizationCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Getway" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Serial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LedgerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubscriptionType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IsStorageSubscription" Type="Boolean" />
+          <Property Name="IsReceivedCommissions" Type="Boolean" />
+          <Property Name="YTD_Commission" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MTD_Commission" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsRecurring" Type="Boolean" />
+          <Property Name="YTD_Contact_Export_Limit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MTD_Contact_Import_Limit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Storage_Limit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsBillingCycleMonthly" Type="Boolean" />
+          <Property Name="BasicAmount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StorageAmount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubTotalCharge" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Promocode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountPercentage" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Discount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CheckingAccountProcessingFee" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GrossAmount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NetAmount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DebitAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreditAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NoOfContact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ContactMultiplier" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TotalContact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PerUnitCharge" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MonthlyCharge" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsAgree" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PaymentInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CardNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CVS" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Month" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="LastFourDigitCard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="IsCheckingAccount" Type="Boolean" />
+          <Property Name="RoutingNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="AccountNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CheckNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="IsRecurring" Type="Boolean" />
+          <Property Name="IsAgree" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ReferralAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GiverPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GetterPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="YTD_Commission" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MTD_Commission" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="YTD_CommissionOwed" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MTD_CommissionOwed" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="YTD_CommissionPaid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MTD_CommissionPaid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastTransactionDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ReferralTransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GiverPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GetterPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="PayorAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Month" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CommissionMonthDate" Type="DateTime" Precision="3" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <Property Name="CommissionFor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="STATE" />
+          </Key>
+          <Property Name="STATE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesTaxRate" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="FreightTaxable" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ShippingSurcharge" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="SystemInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmailServer1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmailUser1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmailPassword1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EmailServer2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmailUser2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmailPassword2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EmailServer3" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmailUser3" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmailPassword3" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EmailServer4" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmailUser4" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmailPassword4" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityLink" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityKey" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityUser" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityPassword" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CreditCardLink" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCardKey" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCardUser" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCardPassword" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentLink" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicationFee" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FeeType" Type="Int16" />
+          <Property Name="FeePercentage" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FeeFlatAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="IncludeProcessFees" Type="Boolean" />
+          <Property Name="TanentPayFees" Type="Boolean" />
+          <Property Name="CreditCardProcessFees" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="OneTimePay" Type="Boolean" />
+          <Property Name="RecurringPay" Type="Boolean" />
+          <Property Name="IsGlobalSystem" Type="Boolean" />
+          <Property Name="FeeTypeCheck" Type="Int16" />
+          <Property Name="FeePercentageCheck" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FeeFlatAmountCheck" Type="Decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="UserLog_Data">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="LoginDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserPricing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserPlans" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MonthlyCosts" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Billed" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ContactsImportsMonthly" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ContactExportsYearly" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StoredContacts" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Contacts_500" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Contacts_10000" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ReferralCommissions" Type="Boolean" />
+          <Property Name="eTag365NFCChip" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Serial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneVerifyCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProfileLogo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyLogo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="WorkPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="WorkPhoneExt" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsPhoneVerified" Type="Boolean" />
+          <Property Name="IsNewUser" Type="Boolean" />
+          <Property Name="IsAgree" Type="Boolean" />
+          <Property Name="DoNotEmbedProfile" Type="Boolean" />
+          <Property Name="DoNotEmbedCompany" Type="Boolean" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Other" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="DatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DatabaseLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserTypeContact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CanLogin" Type="Boolean" />
+          <Property Name="IsUserProfileComplete" Type="Boolean" />
+          <Property Name="IsBillingComplete" Type="Boolean" />
+          <Property Name="IsOverwrite" Type="Boolean" />
+          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="YTD_Contact_Export_Limit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="YTD_Contact_Export" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MTD_Contact_Import" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MTD_Contact_Import_Limit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="RefPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TypeOfContact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SubscriptionType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubscriptionExpiredOn" Type="DateTime" Precision="3" />
+          <Property Name="StorageExpiredOn" Type="DateTime" Precision="3" />
+          <Property Name="IsStorageSubscription" Type="Boolean" />
+          <Property Name="LastImportedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastExportedDate" Type="DateTime" Precision="3" />
+          <Property Name="Contact_Storage_Limit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsSentMail" Type="Boolean" />
+          <Property Name="CountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsEmailFlow" Type="Boolean" />
+          <Property Name="EmailFlowCreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserDefineId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="andVerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="andVerLabel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="andMustUpdate" Type="Boolean" />
+          <Property Name="andVerNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="andLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="iOsVerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="iOsVerLabel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="iOsMustUpdate" Type="Boolean" />
+          <Property Name="iOsLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="iOsVerNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GlobalID">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="CurrentID" />
+          </Key>
+          <Property Name="ObjectID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDForYear" Type="Int32" />
+          <Property Name="IDForMonth" Type="Int32" />
+          <Property Name="IDForDate" Type="DateTime" Precision="3" />
+          <Property Name="CurrentID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_Child_dbo_Master_MasterId">
+          <End Role="Master" Type="Self.Master" Multiplicity="1" />
+          <End Role="Child" Type="Self.Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Master">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TagEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BillingPayment" EntityType="Self.BillingPayment" />
+          <EntitySet Name="CalendarEntry" EntityType="Self.CalendarEntry" />
+          <EntitySet Name="CalendarSchedule" EntityType="Self.CalendarSchedule" />
+          <EntitySet Name="Child" EntityType="Self.Child" />
+          <EntitySet Name="ContactInformation" EntityType="Self.ContactInformation" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Dealer_SalesPartner" EntityType="Self.Dealer_SalesPartner" />
+          <EntitySet Name="Dealer_SalesPartner_DetailsZipCodeCoverage" EntityType="Self.Dealer_SalesPartner_DetailsZipCodeCoverage" />
+          <EntitySet Name="EmailLog" EntityType="Self.EmailLog" />
+          <EntitySet Name="EmailSchedule" EntityType="Self.EmailSchedule" />
+          <EntitySet Name="EmailSetup" EntityType="Self.EmailSetup" />
+          <EntitySet Name="EmailUnsubscribe" EntityType="Self.EmailUnsubscribe" />
+          <EntitySet Name="FinancialTransaction" EntityType="Self.FinancialTransaction" />
+          <EntitySet Name="GroupCode" EntityType="Self.GroupCode" />
+          <EntitySet Name="ImportContact" EntityType="Self.ImportContact" />
+          <EntitySet Name="Master" EntityType="Self.Master" />
+          <EntitySet Name="PaymentHistory" EntityType="Self.PaymentHistory" />
+          <EntitySet Name="PaymentInformation" EntityType="Self.PaymentInformation" />
+          <EntitySet Name="ReferralAccount" EntityType="Self.ReferralAccount" />
+          <EntitySet Name="ReferralTransaction" EntityType="Self.ReferralTransaction" />
+          <EntitySet Name="States" EntityType="Self.States" />
+          <EntitySet Name="SystemInformation" EntityType="Self.SystemInformation" />
+          <EntitySet Name="UserLog_Data" EntityType="Self.UserLog_Data" />
+          <EntitySet Name="UserPricing" EntityType="Self.UserPricing" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" />
+          <EntitySet Name="Version" EntityType="Self.Version" />
+          <EntitySet Name="GlobalID" EntityType="Self.GlobalID" />
+          <AssociationSet Name="FK_dbo_Child_dbo_Master_MasterId" Association="Self.FK_dbo_Child_dbo_Master_MasterId">
+            <End Role="Master" EntitySet="Master" />
+            <End Role="Child" EntitySet="Child" />
+          </AssociationSet>
+          <FunctionImport Name="SP_GetID">
+            <Parameter Name="ObjectID" Mode="In" Type="String" />
+            <Parameter Name="ItemID" Mode="In" Type="String" />
+            <Parameter Name="IDForYear" Mode="In" Type="Int32" />
+            <Parameter Name="IDForMonth" Mode="In" Type="Int32" />
+            <Parameter Name="IDForDate" Mode="In" Type="DateTime" />
+            <Parameter Name="NewID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Calculate_Commission_Dealer_Monthly" />
+          <FunctionImport Name="usp_Calculate_Commission_User_Monthly" />
+          <FunctionImport Name="usp_GetCommissionAmount_All_DateWise" ReturnType="Collection(eTag365Model.usp_GetCommissionAmount_All_DateWise_Result)">
+            <Parameter Name="StartDate" Mode="In" Type="String" />
+            <Parameter Name="EndDate" Mode="In" Type="String" />
+            <Parameter Name="GetterPhoneNo" Mode="In" Type="String" />
+            <Parameter Name="commissionFor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetCommissionByUserType" ReturnType="Collection(eTag365Model.usp_GetCommissionByUserType_Result)">
+            <Parameter Name="phoneNo" Mode="In" Type="String" />
+            <Parameter Name="commissionFor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetCommissionDetailsByUserType" ReturnType="Collection(eTag365Model.usp_GetCommissionDetailsByUserType_Result)">
+            <Parameter Name="commissionFor" Mode="In" Type="String" />
+            <Parameter Name="Month" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+            <Parameter Name="Ispaid" Mode="In" Type="Boolean" />
+            <Parameter Name="phoneNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetCommissionDetailsForDealer" ReturnType="Collection(eTag365Model.usp_GetCommissionDetailsForDealer_Result)">
+            <Parameter Name="Month" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+            <Parameter Name="Ispaid" Mode="In" Type="Boolean" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetCommissionForDealerChange" ReturnType="Collection(eTag365Model.usp_GetCommissionForDealerChange_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getContactStorageBalance" ReturnType="Collection(Int32)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getCurrentMonthContactImport" ReturnType="Collection(Int32)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getCurrentYearContactExport" ReturnType="Collection(Int32)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetDelarInfoByPhoneNo" ReturnType="Collection(eTag365Model.usp_GetDelarInfoByPhoneNo_Result)">
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetDueCommissionByUser" ReturnType="Collection(eTag365Model.usp_GetDueCommissionByUser_Result)">
+            <Parameter Name="phoneNo" Mode="In" Type="String" />
+            <Parameter Name="commissionFor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetGroupCodeByUserType" ReturnType="Collection(eTag365Model.usp_GetGroupCodeByUserType_Result)">
+            <Parameter Name="GroupCodeFor" Mode="In" Type="String" />
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getPhoneNoByAutoComplete" ReturnType="Collection(eTag365Model.usp_getPhoneNoByAutoComplete_Result)">
+            <Parameter Name="autocompleteText" Mode="In" Type="String" />
+            <Parameter Name="GroupCodeFor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetUserInfoByDealer" ReturnType="Collection(eTag365Model.usp_GetUserInfoByDealer_Result)">
+            <Parameter Name="phoneNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ImportToContact">
+            <Parameter Name="createdBy" Mode="In" Type="String" />
+            <Parameter Name="TypeOfContact" Mode="In" Type="String" />
+            <Parameter Name="balance" Mode="In" Type="String" />
+            <Parameter Name="Mass" Mode="InOut" Type="String" />
+            <Parameter Name="error" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UpdateUserProfileEmailAndPassword">
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="MobileNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UpdateUserProfileForExportData">
+            <Parameter Name="createdBy" Mode="In" Type="String" />
+            <Parameter Name="NoOfExport" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_GetCommissionAmount_All_DateWise_Result">
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="PhoneNo" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="RegistrationDate" Nullable="true" />
+          <Property Type="String" Name="Month" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="5" />
+          <Property Type="Decimal" Name="ReferalCommissionAmount" Nullable="false" Precision="19" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="8" />
+        </ComplexType>
+        <ComplexType Name="usp_GetCommissionByUserType_Result">
+          <Property Type="String" Name="Month" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="5" />
+          <Property Type="Decimal" Name="amount" Nullable="false" Precision="19" />
+          <Property Type="Boolean" Name="IsPaid" Nullable="true" />
+          <Property Type="Decimal" Name="CommissionOwned" Nullable="false" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="usp_GetCommissionDetailsByUserType_Result">
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Zip" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_GetCommissionDetailsForDealer_Result">
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Zip" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_GetCommissionForDealerChange_Result">
+          <Property Type="String" Name="Month" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="5" />
+          <Property Type="Decimal" Name="amount" Nullable="false" Precision="19" />
+          <Property Type="Boolean" Name="IsPaid" Nullable="true" />
+          <Property Type="Decimal" Name="CommissionOwned" Nullable="false" Precision="18" Scale="3" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDelarInfoByPhoneNo_Result">
+          <Property Type="Int32" Name="DealerID" Nullable="false" />
+          <Property Type="String" Name="firstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="lastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="address1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="address2" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="city" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="stateId" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="STATENAME" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="zipCode" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="mobilePhoneNo" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="serialCode" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="joinDate" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="commissionRate" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="String" Name="primaryPhoneNo" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="accountNo" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="routingNo" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_GetDueCommissionByUser_Result">
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="Month" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="GiverPhone" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="8" />
+          <Property Type="Decimal" Name="CommissionOwed" Nullable="false" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="usp_GetGroupCodeByUserType_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="BillEvery" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="GroupCodeNo" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="GroupDescription" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_getPhoneNoByAutoComplete_Result">
+          <Property Type="String" Name="label" Nullable="false" MaxLength="134" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_GetUserInfoByDealer_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Zip" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eTag365ModelStoreContainer" CdmEntityContainer="TagEntities">
+          <EntitySetMapping Name="BillingPayment">
+            <EntityTypeMapping TypeName="eTag365Model.BillingPayment">
+              <MappingFragment StoreEntitySet="BillingPayment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="SubscriptionType" ColumnName="SubscriptionType" />
+                <ScalarProperty Name="IsStorageSubscription" ColumnName="IsStorageSubscription" />
+                <ScalarProperty Name="IsReceivedCommissions" ColumnName="IsReceivedCommissions" />
+                <ScalarProperty Name="SubscriptionExpiredOn" ColumnName="SubscriptionExpiredOn" />
+                <ScalarProperty Name="StorageExpiredOn" ColumnName="StorageExpiredOn" />
+                <ScalarProperty Name="YTD_Contact_Export_Limit" ColumnName="YTD_Contact_Export_Limit" />
+                <ScalarProperty Name="MTD_Contact_Import_Limit" ColumnName="MTD_Contact_Import_Limit" />
+                <ScalarProperty Name="Contact_Storage_Limit" ColumnName="Contact_Storage_Limit" />
+                <ScalarProperty Name="IsBillingCycleMonthly" ColumnName="IsBillingCycleMonthly" />
+                <ScalarProperty Name="IsBillingComplete" ColumnName="IsBillingComplete" />
+                <ScalarProperty Name="ReferralStartDate" ColumnName="ReferralStartDate" />
+                <ScalarProperty Name="ReferralEndDate" ColumnName="ReferralEndDate" />
+                <ScalarProperty Name="IsCommissionMonthly" ColumnName="IsCommissionMonthly" />
+                <ScalarProperty Name="YTD_Commission" ColumnName="YTD_Commission" />
+                <ScalarProperty Name="MTD_Commission" ColumnName="MTD_Commission" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="YTD_ReferralUser" ColumnName="YTD_ReferralUser" />
+                <ScalarProperty Name="Total_ReferralUser" ColumnName="Total_ReferralUser" />
+                <ScalarProperty Name="ReferralRecycleDate" ColumnName="ReferralRecycleDate" />
+                <ScalarProperty Name="LastReferralCalculatedDate" ColumnName="LastReferralCalculatedDate" />
+                <ScalarProperty Name="IsRecurring" ColumnName="IsRecurring" />
+                <ScalarProperty Name="BasicAmount" ColumnName="BasicAmount" />
+                <ScalarProperty Name="StorageAmount" ColumnName="StorageAmount" />
+                <ScalarProperty Name="SubTotalCharge" ColumnName="SubTotalCharge" />
+                <ScalarProperty Name="Promocode" ColumnName="Promocode" />
+                <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="GrossAmount" ColumnName="GrossAmount" />
+                <ScalarProperty Name="CheckingAccountProcessingFee" ColumnName="CheckingAccountProcessingFee" />
+                <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+                <ScalarProperty Name="NoOfContact" ColumnName="NoOfContact" />
+                <ScalarProperty Name="ContactMultiplier" ColumnName="ContactMultiplier" />
+                <ScalarProperty Name="TotalContact" ColumnName="TotalContact" />
+                <ScalarProperty Name="PerUnitCharge" ColumnName="PerUnitCharge" />
+                <ScalarProperty Name="MonthlyCharge" ColumnName="MonthlyCharge" />
+                <ScalarProperty Name="IsAgree" ColumnName="IsAgree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CalendarEntry">
+            <EntityTypeMapping TypeName="eTag365Model.CalendarEntry">
+              <MappingFragment StoreEntitySet="CalendarEntry">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+                <ScalarProperty Name="MeetingDate" ColumnName="MeetingDate" />
+                <ScalarProperty Name="GMTTimeStart" ColumnName="GMTTimeStart" />
+                <ScalarProperty Name="MeetingStartTime" ColumnName="MeetingStartTime" />
+                <ScalarProperty Name="GMTTimeEnd" ColumnName="GMTTimeEnd" />
+                <ScalarProperty Name="MeetingEndTime" ColumnName="MeetingEndTime" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="TimeZoneDifference" ColumnName="TimeZoneDifference" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="MeetingStartTimeShow" ColumnName="MeetingStartTimeShow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CalendarSchedule">
+            <EntityTypeMapping TypeName="eTag365Model.CalendarSchedule">
+              <MappingFragment StoreEntitySet="CalendarSchedule">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MeetingId" ColumnName="MeetingId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ToUserFirstName" ColumnName="ToUserFirstName" />
+                <ScalarProperty Name="ToUserLastName" ColumnName="ToUserLastName" />
+                <ScalarProperty Name="ToUserEmail" ColumnName="ToUserEmail" />
+                <ScalarProperty Name="ToUserPhone" ColumnName="ToUserPhone" />
+                <ScalarProperty Name="ToUserCompany" ColumnName="ToUserCompany" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+                <ScalarProperty Name="TimeZoneDifference" ColumnName="TimeZoneDifference" />
+                <ScalarProperty Name="MeetingDate" ColumnName="MeetingDate" />
+                <ScalarProperty Name="GMTTimeStart" ColumnName="GMTTimeStart" />
+                <ScalarProperty Name="MeetingStartTime" ColumnName="MeetingStartTime" />
+                <ScalarProperty Name="GMTTimeEnd" ColumnName="GMTTimeEnd" />
+                <ScalarProperty Name="MeetingEndTime" ColumnName="MeetingEndTime" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="IsBooked" ColumnName="IsBooked" />
+                <ScalarProperty Name="IsSentEmail" ColumnName="IsSentEmail" />
+                <ScalarProperty Name="MeetingStartTimeShow" ColumnName="MeetingStartTimeShow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Child">
+            <EntityTypeMapping TypeName="eTag365Model.Child">
+              <MappingFragment StoreEntitySet="Child">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="UserDefinedId" ColumnName="UserDefinedId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactInformation">
+            <EntityTypeMapping TypeName="eTag365Model.ContactInformation">
+              <MappingFragment StoreEntitySet="ContactInformation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="WorkPhoneExt" ColumnName="WorkPhoneExt" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="ProfileLogo" ColumnName="ProfileLogo" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="IsOverwrite" ColumnName="IsOverwrite" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserTypeContact" ColumnName="UserTypeContact" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="RefPhone" ColumnName="RefPhone" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TypeOfContact" ColumnName="TypeOfContact" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="IsEmailFlow" ColumnName="IsEmailFlow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="eTag365Model.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="iso" ColumnName="iso" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="nicename" ColumnName="nicename" />
+                <ScalarProperty Name="iso3" ColumnName="iso3" />
+                <ScalarProperty Name="numcode" ColumnName="numcode" />
+                <ScalarProperty Name="phonecode" ColumnName="phonecode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dealer_SalesPartner">
+            <EntityTypeMapping TypeName="eTag365Model.Dealer_SalesPartner">
+              <MappingFragment StoreEntitySet="Dealer_SalesPartner">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="serialCode" ColumnName="serialCode" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="stateId" ColumnName="stateId" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="primaryPhoneNo" ColumnName="primaryPhoneNo" />
+                <ScalarProperty Name="mobilePhoneNo" ColumnName="mobilePhoneNo" />
+                <ScalarProperty Name="routingNo" ColumnName="routingNo" />
+                <ScalarProperty Name="accountNo" ColumnName="accountNo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+                <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+                <ScalarProperty Name="commissionRate" ColumnName="commissionRate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dealer_SalesPartner_DetailsZipCodeCoverage">
+            <EntityTypeMapping TypeName="eTag365Model.Dealer_SalesPartner_DetailsZipCodeCoverage">
+              <MappingFragment StoreEntitySet="Dealer_SalesPartner_DetailsZipCodeCoverage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dealerSalesPartnerId" ColumnName="dealerSalesPartnerId" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="commissionRate" ColumnName="commissionRate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailLog">
+            <EntityTypeMapping TypeName="eTag365Model.EmailLog">
+              <MappingFragment StoreEntitySet="EmailLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PersonEmail" ColumnName="PersonEmail" />
+                <ScalarProperty Name="FromEmail" ColumnName="FromEmail" />
+                <ScalarProperty Name="EmailNumber" ColumnName="EmailNumber" />
+                <ScalarProperty Name="EmailSentOn" ColumnName="EmailSentOn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailSchedule">
+            <EntityTypeMapping TypeName="eTag365Model.EmailSchedule">
+              <MappingFragment StoreEntitySet="EmailSchedule">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="PersonEmail" ColumnName="PersonEmail" />
+                <ScalarProperty Name="FromEmail" ColumnName="FromEmail" />
+                <ScalarProperty Name="IsLoop" ColumnName="IsLoop" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="IsZeroMailSent" ColumnName="IsZeroMailSent" />
+                <ScalarProperty Name="ZeroEmailSentOn" ColumnName="ZeroEmailSentOn" />
+                <ScalarProperty Name="LastEmailNumber" ColumnName="LastEmailNumber" />
+                <ScalarProperty Name="LastEmailSentOn" ColumnName="LastEmailSentOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailSetup">
+            <EntityTypeMapping TypeName="eTag365Model.EmailSetup">
+              <MappingFragment StoreEntitySet="EmailSetup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TemplateNo" ColumnName="TemplateNo" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Greetings" ColumnName="Greetings" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailUnsubscribe">
+            <EntityTypeMapping TypeName="eTag365Model.EmailUnsubscribe">
+              <MappingFragment StoreEntitySet="EmailUnsubscribe">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TemplateNo" ColumnName="TemplateNo" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinancialTransaction">
+            <EntityTypeMapping TypeName="eTag365Model.FinancialTransaction">
+              <MappingFragment StoreEntitySet="FinancialTransaction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="LedgerCode" ColumnName="LedgerCode" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="RefId" ColumnName="RefId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupCode">
+            <EntityTypeMapping TypeName="eTag365Model.GroupCode">
+              <MappingFragment StoreEntitySet="GroupCode">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GroupCodeNo" ColumnName="GroupCodeNo" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+                <ScalarProperty Name="GroupPlan" ColumnName="GroupPlan" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="BillEvery" ColumnName="BillEvery" />
+                <ScalarProperty Name="IsForever" ColumnName="IsForever" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="IsRequiredACHInfo" ColumnName="IsRequiredACHInfo" />
+                <ScalarProperty Name="CreditPhoneNo" ColumnName="CreditPhoneNo" />
+                <ScalarProperty Name="Rewards" ColumnName="Rewards" />
+                <ScalarProperty Name="GroupCodeFor" ColumnName="GroupCodeFor" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportContact">
+            <EntityTypeMapping TypeName="eTag365Model.ImportContact">
+              <MappingFragment StoreEntitySet="ImportContact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsImport" ColumnName="IsImport" />
+                <ScalarProperty Name="IsExport" ColumnName="IsExport" />
+                <ScalarProperty Name="NoOfImport" ColumnName="NoOfImport" />
+                <ScalarProperty Name="NoOfExport" ColumnName="NoOfExport" />
+                <ScalarProperty Name="TranDate" ColumnName="TranDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Master">
+            <EntityTypeMapping TypeName="eTag365Model.Master">
+              <MappingFragment StoreEntitySet="Master">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserDefinedId" ColumnName="UserDefinedId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentHistory">
+            <EntityTypeMapping TypeName="eTag365Model.PaymentHistory">
+              <MappingFragment StoreEntitySet="PaymentHistory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FromUser" ColumnName="FromUser" />
+                <ScalarProperty Name="ToUser" ColumnName="ToUser" />
+                <ScalarProperty Name="FromUserType" ColumnName="FromUserType" />
+                <ScalarProperty Name="ToUserType" ColumnName="ToUserType" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="CVS" ColumnName="CVS" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="LastFourDigitCard" ColumnName="LastFourDigitCard" />
+                <ScalarProperty Name="IsCheckingAccount" ColumnName="IsCheckingAccount" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="CheckNo" ColumnName="CheckNo" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="AuthorizationCode" ColumnName="AuthorizationCode" />
+                <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+                <ScalarProperty Name="TransactionDescription" ColumnName="TransactionDescription" />
+                <ScalarProperty Name="Getway" ColumnName="Getway" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="LedgerCode" ColumnName="LedgerCode" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SubscriptionType" ColumnName="SubscriptionType" />
+                <ScalarProperty Name="IsStorageSubscription" ColumnName="IsStorageSubscription" />
+                <ScalarProperty Name="IsReceivedCommissions" ColumnName="IsReceivedCommissions" />
+                <ScalarProperty Name="YTD_Commission" ColumnName="YTD_Commission" />
+                <ScalarProperty Name="MTD_Commission" ColumnName="MTD_Commission" />
+                <ScalarProperty Name="IsRecurring" ColumnName="IsRecurring" />
+                <ScalarProperty Name="YTD_Contact_Export_Limit" ColumnName="YTD_Contact_Export_Limit" />
+                <ScalarProperty Name="MTD_Contact_Import_Limit" ColumnName="MTD_Contact_Import_Limit" />
+                <ScalarProperty Name="Contact_Storage_Limit" ColumnName="Contact_Storage_Limit" />
+                <ScalarProperty Name="IsBillingCycleMonthly" ColumnName="IsBillingCycleMonthly" />
+                <ScalarProperty Name="BasicAmount" ColumnName="BasicAmount" />
+                <ScalarProperty Name="StorageAmount" ColumnName="StorageAmount" />
+                <ScalarProperty Name="SubTotalCharge" ColumnName="SubTotalCharge" />
+                <ScalarProperty Name="Promocode" ColumnName="Promocode" />
+                <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="CheckingAccountProcessingFee" ColumnName="CheckingAccountProcessingFee" />
+                <ScalarProperty Name="GrossAmount" ColumnName="GrossAmount" />
+                <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+                <ScalarProperty Name="DebitAmount" ColumnName="DebitAmount" />
+                <ScalarProperty Name="CreditAmount" ColumnName="CreditAmount" />
+                <ScalarProperty Name="NoOfContact" ColumnName="NoOfContact" />
+                <ScalarProperty Name="ContactMultiplier" ColumnName="ContactMultiplier" />
+                <ScalarProperty Name="TotalContact" ColumnName="TotalContact" />
+                <ScalarProperty Name="PerUnitCharge" ColumnName="PerUnitCharge" />
+                <ScalarProperty Name="MonthlyCharge" ColumnName="MonthlyCharge" />
+                <ScalarProperty Name="IsAgree" ColumnName="IsAgree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentInformation">
+            <EntityTypeMapping TypeName="eTag365Model.PaymentInformation">
+              <MappingFragment StoreEntitySet="PaymentInformation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="CVS" ColumnName="CVS" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="LastFourDigitCard" ColumnName="LastFourDigitCard" />
+                <ScalarProperty Name="IsCheckingAccount" ColumnName="IsCheckingAccount" />
+                <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="CheckNo" ColumnName="CheckNo" />
+                <ScalarProperty Name="IsRecurring" ColumnName="IsRecurring" />
+                <ScalarProperty Name="IsAgree" ColumnName="IsAgree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferralAccount">
+            <EntityTypeMapping TypeName="eTag365Model.ReferralAccount">
+              <MappingFragment StoreEntitySet="ReferralAccount">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GiverPhone" ColumnName="GiverPhone" />
+                <ScalarProperty Name="GetterPhone" ColumnName="GetterPhone" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="YTD_Commission" ColumnName="YTD_Commission" />
+                <ScalarProperty Name="MTD_Commission" ColumnName="MTD_Commission" />
+                <ScalarProperty Name="YTD_CommissionOwed" ColumnName="YTD_CommissionOwed" />
+                <ScalarProperty Name="MTD_CommissionOwed" ColumnName="MTD_CommissionOwed" />
+                <ScalarProperty Name="YTD_CommissionPaid" ColumnName="YTD_CommissionPaid" />
+                <ScalarProperty Name="MTD_CommissionPaid" ColumnName="MTD_CommissionPaid" />
+                <ScalarProperty Name="LastTransactionDate" ColumnName="LastTransactionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferralTransaction">
+            <EntityTypeMapping TypeName="eTag365Model.ReferralTransaction">
+              <MappingFragment StoreEntitySet="ReferralTransaction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GiverPhone" ColumnName="GiverPhone" />
+                <ScalarProperty Name="GetterPhone" ColumnName="GetterPhone" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="PayorAmount" ColumnName="PayorAmount" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CommissionMonthDate" ColumnName="CommissionMonthDate" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="CommissionFor" ColumnName="CommissionFor" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="eTag365Model.States">
+              <MappingFragment StoreEntitySet="States">
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="STATENAME" ColumnName="STATENAME" />
+                <ScalarProperty Name="SalesTaxRate" ColumnName="SalesTaxRate" />
+                <ScalarProperty Name="FreightTaxable" ColumnName="FreightTaxable" />
+                <ScalarProperty Name="ShippingSurcharge" ColumnName="ShippingSurcharge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemInformation">
+            <EntityTypeMapping TypeName="eTag365Model.SystemInformation">
+              <MappingFragment StoreEntitySet="SystemInformation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="EmailServer1" ColumnName="EmailServer1" />
+                <ScalarProperty Name="EmailUser1" ColumnName="EmailUser1" />
+                <ScalarProperty Name="EmailPassword1" ColumnName="EmailPassword1" />
+                <ScalarProperty Name="EmailServer2" ColumnName="EmailServer2" />
+                <ScalarProperty Name="EmailUser2" ColumnName="EmailUser2" />
+                <ScalarProperty Name="EmailPassword2" ColumnName="EmailPassword2" />
+                <ScalarProperty Name="EmailServer3" ColumnName="EmailServer3" />
+                <ScalarProperty Name="EmailUser3" ColumnName="EmailUser3" />
+                <ScalarProperty Name="EmailPassword3" ColumnName="EmailPassword3" />
+                <ScalarProperty Name="EmailServer4" ColumnName="EmailServer4" />
+                <ScalarProperty Name="EmailUser4" ColumnName="EmailUser4" />
+                <ScalarProperty Name="EmailPassword4" ColumnName="EmailPassword4" />
+                <ScalarProperty Name="SecurityLink" ColumnName="SecurityLink" />
+                <ScalarProperty Name="SecurityKey" ColumnName="SecurityKey" />
+                <ScalarProperty Name="SecurityUser" ColumnName="SecurityUser" />
+                <ScalarProperty Name="SecurityPassword" ColumnName="SecurityPassword" />
+                <ScalarProperty Name="CreditCardLink" ColumnName="CreditCardLink" />
+                <ScalarProperty Name="CreditCardKey" ColumnName="CreditCardKey" />
+                <ScalarProperty Name="CreditCardUser" ColumnName="CreditCardUser" />
+                <ScalarProperty Name="CreditCardPassword" ColumnName="CreditCardPassword" />
+                <ScalarProperty Name="DocumentLink" ColumnName="DocumentLink" />
+                <ScalarProperty Name="ApplicationFee" ColumnName="ApplicationFee" />
+                <ScalarProperty Name="FeeType" ColumnName="FeeType" />
+                <ScalarProperty Name="FeePercentage" ColumnName="FeePercentage" />
+                <ScalarProperty Name="FeeFlatAmount" ColumnName="FeeFlatAmount" />
+                <ScalarProperty Name="IncludeProcessFees" ColumnName="IncludeProcessFees" />
+                <ScalarProperty Name="TanentPayFees" ColumnName="TanentPayFees" />
+                <ScalarProperty Name="CreditCardProcessFees" ColumnName="CreditCardProcessFees" />
+                <ScalarProperty Name="OneTimePay" ColumnName="OneTimePay" />
+                <ScalarProperty Name="RecurringPay" ColumnName="RecurringPay" />
+                <ScalarProperty Name="IsGlobalSystem" ColumnName="IsGlobalSystem" />
+                <ScalarProperty Name="FeeTypeCheck" ColumnName="FeeTypeCheck" />
+                <ScalarProperty Name="FeePercentageCheck" ColumnName="FeePercentageCheck" />
+                <ScalarProperty Name="FeeFlatAmountCheck" ColumnName="FeeFlatAmountCheck" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLog_Data">
+            <EntityTypeMapping TypeName="eTag365Model.UserLog_Data">
+              <MappingFragment StoreEntitySet="UserLog_Data">
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPricing">
+            <EntityTypeMapping TypeName="eTag365Model.UserPricing">
+              <MappingFragment StoreEntitySet="UserPricing">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserPlans" ColumnName="UserPlans" />
+                <ScalarProperty Name="MonthlyCosts" ColumnName="MonthlyCosts" />
+                <ScalarProperty Name="Billed" ColumnName="Billed" />
+                <ScalarProperty Name="ContactsImportsMonthly" ColumnName="ContactsImportsMonthly" />
+                <ScalarProperty Name="ContactExportsYearly" ColumnName="ContactExportsYearly" />
+                <ScalarProperty Name="StoredContacts" ColumnName="StoredContacts" />
+                <ScalarProperty Name="Contacts_500" ColumnName="Contacts_500" />
+                <ScalarProperty Name="Contacts_10000" ColumnName="Contacts_10000" />
+                <ScalarProperty Name="ReferralCommissions" ColumnName="ReferralCommissions" />
+                <ScalarProperty Name="eTag365NFCChip" ColumnName="eTag365NFCChip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfile">
+            <EntityTypeMapping TypeName="eTag365Model.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PhoneVerifyCode" ColumnName="PhoneVerifyCode" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ProfileLogo" ColumnName="ProfileLogo" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="WorkPhoneExt" ColumnName="WorkPhoneExt" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="IsPhoneVerified" ColumnName="IsPhoneVerified" />
+                <ScalarProperty Name="IsNewUser" ColumnName="IsNewUser" />
+                <ScalarProperty Name="IsAgree" ColumnName="IsAgree" />
+                <ScalarProperty Name="DoNotEmbedProfile" ColumnName="DoNotEmbedProfile" />
+                <ScalarProperty Name="DoNotEmbedCompany" ColumnName="DoNotEmbedCompany" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="DatabaseName" ColumnName="DatabaseName" />
+                <ScalarProperty Name="DatabaseLocation" ColumnName="DatabaseLocation" />
+                <ScalarProperty Name="UserTypeContact" ColumnName="UserTypeContact" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CanLogin" ColumnName="CanLogin" />
+                <ScalarProperty Name="IsUserProfileComplete" ColumnName="IsUserProfileComplete" />
+                <ScalarProperty Name="IsBillingComplete" ColumnName="IsBillingComplete" />
+                <ScalarProperty Name="IsOverwrite" ColumnName="IsOverwrite" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="YTD_Contact_Export_Limit" ColumnName="YTD_Contact_Export_Limit" />
+                <ScalarProperty Name="YTD_Contact_Export" ColumnName="YTD_Contact_Export" />
+                <ScalarProperty Name="MTD_Contact_Import" ColumnName="MTD_Contact_Import" />
+                <ScalarProperty Name="MTD_Contact_Import_Limit" ColumnName="MTD_Contact_Import_Limit" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="RefPhone" ColumnName="RefPhone" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TypeOfContact" ColumnName="TypeOfContact" />
+                <ScalarProperty Name="SubscriptionType" ColumnName="SubscriptionType" />
+                <ScalarProperty Name="SubscriptionExpiredOn" ColumnName="SubscriptionExpiredOn" />
+                <ScalarProperty Name="StorageExpiredOn" ColumnName="StorageExpiredOn" />
+                <ScalarProperty Name="IsStorageSubscription" ColumnName="IsStorageSubscription" />
+                <ScalarProperty Name="LastImportedDate" ColumnName="LastImportedDate" />
+                <ScalarProperty Name="LastExportedDate" ColumnName="LastExportedDate" />
+                <ScalarProperty Name="Contact_Storage_Limit" ColumnName="Contact_Storage_Limit" />
+                <ScalarProperty Name="IsSentMail" ColumnName="IsSentMail" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="IsEmailFlow" ColumnName="IsEmailFlow" />
+                <ScalarProperty Name="EmailFlowCreatedOn" ColumnName="EmailFlowCreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserType">
+            <EntityTypeMapping TypeName="eTag365Model.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserType1" ColumnName="UserType" />
+                <ScalarProperty Name="UserDefineId" ColumnName="UserDefineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Version">
+            <EntityTypeMapping TypeName="eTag365Model.Version">
+              <MappingFragment StoreEntitySet="Version">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="andVerCode" ColumnName="andVerCode" />
+                <ScalarProperty Name="andVerLabel" ColumnName="andVerLabel" />
+                <ScalarProperty Name="andMustUpdate" ColumnName="andMustUpdate" />
+                <ScalarProperty Name="andVerNote" ColumnName="andVerNote" />
+                <ScalarProperty Name="andLink" ColumnName="andLink" />
+                <ScalarProperty Name="iOsVerCode" ColumnName="iOsVerCode" />
+                <ScalarProperty Name="iOsVerLabel" ColumnName="iOsVerLabel" />
+                <ScalarProperty Name="iOsMustUpdate" ColumnName="iOsMustUpdate" />
+                <ScalarProperty Name="iOsLink" ColumnName="iOsLink" />
+                <ScalarProperty Name="iOsVerNote" ColumnName="iOsVerNote" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GlobalID">
+            <EntityTypeMapping TypeName="eTag365Model.GlobalID">
+              <MappingFragment StoreEntitySet="GlobalID">
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="IDForYear" ColumnName="IDForYear" />
+                <ScalarProperty Name="IDForMonth" ColumnName="IDForMonth" />
+                <ScalarProperty Name="IDForDate" ColumnName="IDForDate" />
+                <ScalarProperty Name="CurrentID" ColumnName="CurrentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetID" FunctionName="eTag365Model.Store.SP_GetID" />
+          <FunctionImportMapping FunctionImportName="usp_Calculate_Commission_Dealer_Monthly" FunctionName="eTag365Model.Store.usp_Calculate_Commission_Dealer_Monthly" />
+          <FunctionImportMapping FunctionImportName="usp_Calculate_Commission_User_Monthly" FunctionName="eTag365Model.Store.usp_Calculate_Commission_User_Monthly" />
+          <FunctionImportMapping FunctionImportName="usp_GetCommissionAmount_All_DateWise" FunctionName="eTag365Model.Store.usp_GetCommissionAmount_All_DateWise">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_GetCommissionAmount_All_DateWise_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="ReferalCommissionAmount" ColumnName="ReferalCommissionAmount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetCommissionByUserType" FunctionName="eTag365Model.Store.usp_GetCommissionByUserType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_GetCommissionByUserType_Result">
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="CommissionOwned" ColumnName="CommissionOwned" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetCommissionDetailsByUserType" FunctionName="eTag365Model.Store.usp_GetCommissionDetailsByUserType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_GetCommissionDetailsByUserType_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetCommissionDetailsForDealer" FunctionName="eTag365Model.Store.usp_GetCommissionDetailsForDealer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_GetCommissionDetailsForDealer_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetCommissionForDealerChange" FunctionName="eTag365Model.Store.usp_GetCommissionForDealerChange">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_GetCommissionForDealerChange_Result">
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="CommissionOwned" ColumnName="CommissionOwned" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_getContactStorageBalance" FunctionName="eTag365Model.Store.usp_getContactStorageBalance" />
+          <FunctionImportMapping FunctionImportName="usp_getCurrentMonthContactImport" FunctionName="eTag365Model.Store.usp_getCurrentMonthContactImport" />
+          <FunctionImportMapping FunctionImportName="usp_getCurrentYearContactExport" FunctionName="eTag365Model.Store.usp_getCurrentYearContactExport" />
+          <FunctionImportMapping FunctionImportName="usp_GetDelarInfoByPhoneNo" FunctionName="eTag365Model.Store.usp_GetDelarInfoByPhoneNo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_GetDelarInfoByPhoneNo_Result">
+                <ScalarProperty Name="DealerID" ColumnName="DealerID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="stateId" ColumnName="stateId" />
+                <ScalarProperty Name="STATENAME" ColumnName="STATENAME" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="mobilePhoneNo" ColumnName="mobilePhoneNo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="serialCode" ColumnName="serialCode" />
+                <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+                <ScalarProperty Name="commissionRate" ColumnName="commissionRate" />
+                <ScalarProperty Name="primaryPhoneNo" ColumnName="primaryPhoneNo" />
+                <ScalarProperty Name="accountNo" ColumnName="accountNo" />
+                <ScalarProperty Name="routingNo" ColumnName="routingNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDueCommissionByUser" FunctionName="eTag365Model.Store.usp_GetDueCommissionByUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_GetDueCommissionByUser_Result">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="GiverPhone" ColumnName="GiverPhone" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CommissionOwed" ColumnName="CommissionOwed" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetGroupCodeByUserType" FunctionName="eTag365Model.Store.usp_GetGroupCodeByUserType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_GetGroupCodeByUserType_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BillEvery" ColumnName="BillEvery" />
+                <ScalarProperty Name="GroupCodeNo" ColumnName="GroupCodeNo" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_getPhoneNoByAutoComplete" FunctionName="eTag365Model.Store.usp_getPhoneNoByAutoComplete">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_getPhoneNoByAutoComplete_Result">
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetUserInfoByDealer" FunctionName="eTag365Model.Store.usp_GetUserInfoByDealer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eTag365Model.usp_GetUserInfoByDealer_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ImportToContact" FunctionName="eTag365Model.Store.usp_ImportToContact" />
+          <FunctionImportMapping FunctionImportName="usp_UpdateUserProfileEmailAndPassword" FunctionName="eTag365Model.Store.usp_UpdateUserProfileEmailAndPassword" />
+          <FunctionImportMapping FunctionImportName="usp_UpdateUserProfileForExportData" FunctionName="eTag365Model.Store.usp_UpdateUserProfileForExportData" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

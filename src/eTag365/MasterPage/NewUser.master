@@ -1,0 +1,146 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="NewUser.master.cs" Inherits="NewUser" %>
+
+<%@ Register TagPrefix="MyHeader" TagName="HeaderControl" Src="~/UserControls/Header.ascx" %>
+
+<%@ Register TagPrefix="MyFooter" TagName="FooterControl" Src="~/UserControls/Footer.ascx" %>
+
+
+<%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">--%>
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head id="Head1" runat="server">
+    <meta http-equiv="Page-Enter" content="blendTrans(Duration=0)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0)" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+     <title>eTag365</title>
+
+    <link rel="stylesheet" href="../Content/bootstrap.css" />
+    <link rel="stylesheet" href="../Content/jquery-ui.css" />
+    <link rel="stylesheet" href="../Content/font-awesome.css" />
+    <link rel="stylesheet" href="../Content/ionicons/ionicons.css" />
+    <link rel="stylesheet" href="../AdminLTE/css/AdminLTE.css" />
+    <link rel="stylesheet" href="../AdminLTE/css/skins/_all-skins.css" />
+    <link rel="stylesheet" href="../Content/admin.css" />
+    <!-- Web Fonts -->
+   <%-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>--%>
+    <link type="text/css" href="../scripts/notification/notification.css" rel="stylesheet" />
+    <link href="../scripts/select2/dist/css/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../scripts/select2/dist/css/select2.css" rel="stylesheet" />
+    <link href="../css/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../plugins/SlickNav/slicknav.css" />
+
+    <script type="text/javascript">
+
+        if (window.innerWidth <= 350) {
+            google_ad_width = 320;
+            google_ad_height = 50;
+        } else if (window.innerWidth >= 750) {
+            google_ad_width = 728;
+            google_ad_height = 90;
+        } else {
+            google_ad_width = 468;
+            google_ad_height = 60;
+        }
+    </script>
+    <style type="text/css">
+        .box-header.with-border {
+            border-bottom: none;
+            text-align: center;
+        }
+
+        .box {
+            position: relative;
+            background: none;
+            border-top: none;
+            margin-bottom: 20px;
+            width: 100%;
+            box-shadow: none;
+        }
+
+        .skin-blue .sidebar-menu .treeview-menu > li > a.active {
+            color: red;
+        }
+
+        .slicknav_menu {
+	        display:none;
+        }
+        .wrapper {
+            background: #F7F7F7;
+        }
+        @media screen and (max-width: 767px) {
+	        /* #menu is the original menu */
+	        #menu {
+		        display:none;
+	        }
+	
+	        .slicknav_menu {
+				background: #8B9DC3;
+				display: block;
+                top: 110px;
+				/*top: 10px;
+				left: 150px;*/
+				position: absolute;
+				z-index: 10000;
+	        }
+        }
+
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <MyHeader:HeaderControl ID="Header1" runat="server" />
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+       
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">                 
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">                         
+                    </asp:ContentPlaceHolder>  
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <MyFooter:FooterControl ID="Footer" runat="server" />
+
+    </div>
+    <!-- ./wrapper -->
+
+    
+    <script type="text/javascript" src="../../scripts/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../../scripts/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src="../../scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../AdminLTE/js/adminlte.js"></script>     
+    <script type="text/javascript" src="../../scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../../scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="../../plugins/SlickNav/jquery.slicknav.min.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#menu').slicknav();
+            });
+      
+        </script>
+
+       
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
+

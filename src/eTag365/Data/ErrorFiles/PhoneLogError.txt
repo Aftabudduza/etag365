@@ -1,0 +1,12 @@
+4/24/2020 5:28:26 PM - eTag365 SMS sending failed To following numbers:
+
++8801830576952
+
+4/24/2020 5:54:38 PM - eTag365 SMS sending failed To following numbers:
+
+8801817708660
+
+4/24/2020 6:05:47 PM - eTag365 SMS sending failed To following numbers:
+
++8801817708660
+

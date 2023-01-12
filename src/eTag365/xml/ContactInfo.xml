@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Contacts>
+  <contact>
+    <FirstName>GEOFFREY</FirstName>
+    <MiddleName>
+    </MiddleName>
+    <LastName>TSUMA</LastName>
+    <Title>
+    </Title>
+    <CompanyName>ABC</CompanyName>
+    <Phone>14046451335</Phone>
+    <Email>abc@adi.com</Email>
+    <Address>
+    </Address>
+    <Address1>
+    </Address1>
+    <City>
+    </City>
+    <State>
+    </State>
+    <Zip>
+    </Zip>
+    <Region>
+    </Region>
+    <Country>US</Country>
+    <WorkPhone>
+    </WorkPhone>
+    <WorkPhoneExt>
+    </WorkPhoneExt>
+    <Fax>
+    </Fax>
+    <IsActive>True</IsActive>
+    <RefPhone>
+    </RefPhone>
+    <Category>
+    </Category>
+    <TypeOfContact>
+    </TypeOfContact>
+    <IsEmailFlow>0</IsEmailFlow>
+    <Website>
+    </Website>
+  </contact>
+</Contacts>

@@ -1,0 +1,453 @@
+﻿
+/**{
+	margin:0px;
+	padding:0px;
+}
+body  {
+	font: normal 16px Georgia;
+	margin: 0; 
+	padding: 0;
+	color: #4d4e53;
+	background:#ccc;
+	width:100%;
+	height:auto;
+}*/
+.tbl tr td{padding:5px;}
+.tbl tr td.cal tr td{padding:0;}
+a, img
+{
+	border:none;
+}
+input, textarea
+{
+	border:1px solid #cacaca;
+	padding: 0 5px 0 5px;
+}
+input[type="submit"],input[type="reset"] 
+{
+	cursor:pointer;
+}
+input[type="checkbox"]
+{
+	border:none;
+}
+/*h1
+{
+    color:#0d5679;
+    font-weight:normal;
+    font-size:18px;
+}
+h2
+{
+    color:#C9A539;
+    padding-bottom:15px;
+}
+p
+{
+    padding-bottom:15px;
+}*/
+.wrapper
+{
+    float:left;
+    width:100%;
+    height:auto;
+}
+.root_container
+{
+    margin:0 auto;
+    width:1102px;
+    height:auto;
+}
+.header_container
+{
+    float:left;
+    width:1100px;
+    height:111px;
+    background:url('../images/banner.jpg') no-repeat;
+    border-left:1px solid #000000;
+    border-right:1px solid #000000;
+    border-top:1px solid #000000;
+    border-bottom:1px solid #8CC63F;
+}
+.logo
+{
+    float:left;
+    width:500px;
+    height:105px;
+    position:relative;
+    z-index:1000;
+    /*margin-left:25px;*/
+    display:inline;
+}
+.logotxt
+{
+	float:left;
+	margin-top:40px;
+	display:inline;
+	font: normal 25px Georgia;
+	color:#4d4e53;
+}
+.menu_container
+{
+    float:left;
+    width:1100px;
+    height:30px;
+    background:#fff;
+    border-left:1px solid #000000;
+    border-right:1px solid #000000;
+}
+.menu
+{
+    float:left;
+    width:1050px;
+    height:30px;
+    background:#8CC63F;
+    margin-left:25px;
+    display:inline;
+}
+/*.menu ul
+{
+    float:left;
+}
+.menu ul li
+{
+    list-style-type:none;
+	float:left;
+	padding:0 14px;
+	line-height:19px;
+}
+.menu ul li a
+{
+	text-decoration:none;
+	color:#FFFFFF;
+	font: bold 11px Arial;
+	line-height:19px;
+	outline:0;
+}
+.menu ul li:hover
+{
+	background:#F57B20;
+}*/
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  float:left;
+}
+.menu ul li {
+  display: block;
+  position: relative;
+  float: left;
+}
+.menu li ul { display: none; }
+.menu ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 0 13px;
+  white-space: nowrap;
+  color:#FFFFFF;
+  font: bold 12px Arial;
+  /*font: normal 16px Georgia;*/
+  line-height:30px;
+  text-align:left;
+}
+.menu ul ul li a {
+    border-right: none;
+    text-align:left;
+}
+.menu ul li a:hover { background: #F57B20; color:#fff;}
+.menu li:hover ul {
+  display: block;
+  position: absolute;
+  background: #8CC63F;
+  border-left:1px solid #fff;
+  border-right:1px solid #fff;
+  border-top:1px solid #fff;
+}
+.menu li:hover li {
+  float: none;
+  font-size: 11px;
+  border-bottom: 1px solid #fff;
+}
+.menu li:hover a { background: #8CC63F;}
+.menu li:hover li a:hover { background: #F57B20; color:#fff;}
+.main_container
+{
+    float:left;
+    width:1100px;
+    height:auto;
+    background:#fff;
+    border-left:1px solid #000000;
+    border-right:1px solid #000000;
+    border-bottom:1px solid #000000;
+}
+.main_content
+{
+	float:left;
+    width:1050px;
+    min-height:800px;
+    margin-left:25px;
+    display:inline;
+    padding:15px 0 15px 0;
+}
+.login
+{
+	float:left;
+	margin:60px 0 0 340px;
+	display:inline;
+    padding: 20px;
+    width:310px;
+    height:auto;
+    background:#f1f1f1;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+	border-radius:6px;
+	behavior: url(./js/PIE.htc);
+	border: 1px solid #1366c2;
+}
+.title
+{
+	float:left;
+	width:95%;
+	height:auto;
+}
+.title span
+{
+	float:left;
+	padding:5px;
+	font-weight:bold;
+	background:#d1d0d0;
+	border:1px solid #e1e1e1;
+	-webkit-border-radius:6px 6px 0 0;
+    -moz-border-radius:6px 6px 0 0;
+	border-radius:6px 6px 0 0;
+	behavior: url(./js/PIE.htc);
+}
+.subtitle
+{
+	float:left;
+	width:100%;
+	height:auto;
+	background:#e7e7e7;
+}
+.subtitle span
+{
+	float:left;
+	padding:5px;
+	color:#52729a;
+}
+.form_container
+{
+	float:left;
+	border:1px solid #e1e1e1;
+	width:100%;
+	height:auto;
+}
+.footer_container
+{
+    float:left;
+    width:100%;
+    height:auto;
+}
+#footer_link
+{
+    float:right;
+    width:100%;
+    height:auto;
+    text-align: right;
+    margin-top:10px;
+    display:inline;
+    font: normal 10px Arial;
+    color:#737373;
+}
+#footer_link a
+{
+    font: normal 10px Arial;
+    color:#737373;
+    text-decoration:none;
+    outline:0;
+}
+#cpy
+{
+    float:right;
+    width:100%;
+    height:auto;
+    text-align: right;
+    margin-bottom:10px;
+    display:inline;
+    font: normal 10px Arial;
+    color:#737373;
+}
+
+
+.numericTextBox
+{
+text-align:right;
+Width:50px;
+}
+
+    .clsPopupDesign
+    {	
+            
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 12px;
+    float: left;
+    overflow: hidden;
+    position: absolute;
+    behavior: url(../PIE.htc);
+    }
+
+     .btnDeleteRow
+    {
+        display: block;
+        background: url('../images/DeleteRed.png') no-repeat;
+        background-position: -0px -66px;
+        width: 44px;
+        height: 16px;
+    }
+
+     
+        .Waitmodal
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: black;
+            z-index: 99;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            -moz-opacity: 0.8;
+            min-height: 1200px;
+            width: 1920px;
+        }
+
+        .Waitloading
+        {
+            font-family: Arial;
+            font-size: 10pt;
+            border: 5px solid #67CFF5;
+            width: 200px;
+            height: 100px;
+            display: none;
+            position: fixed;
+            background-color: White;
+            z-index: 999;
+        }
+
+
+.NumericTextBox
+{
+    text-align:right;
+
+}
+@media only screen and (min-width : 768px) and (max-width : 1920px) {
+    #elem {
+        -moz-user-select: none;
+        background-color: #ffffff !important;
+        border: 1px outset #2662df;
+        cursor: default;
+        position: inherit;
+        z-index: 50;
+        padding: 20px;
+        margin-top: -104px !important;
+        margin-left: 20px !important;
+        border-radius: 20px;
+    }
+     #elem2 {
+        -moz-user-select: none;
+        background-color: #ffffff !important;
+        border: 1px outset #2662df;
+        cursor: default;
+        position: inherit;
+        z-index: 50;
+        padding: 20px;
+        margin-top: -104px !important;
+        margin-left: 20px !important;
+        border-radius: 20px;
+    }
+    .picker_left_main {
+        float: left; 
+        width:45%;
+        height: auto;
+    }
+}
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+    #elem {
+            -moz-user-select: none;
+            background-color: #ffffff !important;
+            border: 1px outset #2662df;
+            cursor: default;
+            position: inherit;
+            z-index: 50;
+            padding: 15px;
+            margin-top: -170px !important;
+            margin-left: -60px !important;
+            border-radius: 20px;
+        }
+     #elem {
+            -moz-user-select: none;
+            background-color: #ffffff !important;
+            border: 1px outset #2662df;
+            cursor: default;
+            position: inherit;
+            z-index: 50;
+            padding: 15px;
+            margin-top: -170px !important;
+            margin-left: -60px !important;
+            border-radius: 20px;
+        }
+    .picker_left_main {
+        height: auto;
+        width:80%;
+    }
+    .box {
+      /*width: 85%;*/
+        width: 100%;
+    }
+    
+}
+
+.adBoxHeader {
+    /*border: 1px solid #CCC;*/ 
+    float: left; 
+    height: 120px;
+    width: 100%;
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background: #8B9DC3;
+}
+.main-sidebar {
+    background: #F7F7F7;
+}
+.skin-blue .sidebar-menu > li > .treeview-menu {
+     background: #F7F7F7;
+}
+.skin-blue .sidebar-menu .treeview-menu > li > a {
+    color: #000;
+}
+.skin-blue .sidebar a {
+    color: #000;
+}
+.btn-successnew {
+    background-color: #66FF00;
+    border-color: #66FF00;
+}
+.skin-blue .sidebar-menu > li.header {
+    color: #000;
+    background: #F7F7F7;
+}
+
+.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a, .skin-blue .sidebar-menu > li.menu-open > a {
+   background: #8B9DC3;
+}
+.btn-successNew {
+    background-color: #66FF00;
+    border-color: #66FF00;
+}
+
+.btnSubmitDiv
+{
+    float:left;
+    text-align:center;
+}

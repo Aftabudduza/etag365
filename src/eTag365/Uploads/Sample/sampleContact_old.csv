@@ -1,0 +1,2 @@
+FirstName,MiddleName,LastName,Email,Address,Address1,Region,Country,State,City,Zip,Phone,WorkPhone,WorkPhoneExt,Fax,IsActive,RefPhone,Title
+John,,Doe,a@a.com,100 North Street,,NY,US,NY,New York,19034,2123335678,NULL,NULL,NULL,TRUE,NULL,John Doe
