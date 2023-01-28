@@ -47,15 +47,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\Libraries\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\Libraries\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="GenerateHashCode">
       <HintPath>..\..\docs\Libraries\GenerateHashCode.dll</HintPath>
@@ -369,7 +362,6 @@
     <Content Include="bin\AuthorizeNet.dll" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\eTag365.dll" />
     <Content Include="bin\GenerateHashCode.dll" />
     <Content Include="bin\Ical.Net.dll" />
     <Content Include="bin\JWT.dll" />
@@ -380,27 +372,23 @@
     <Content Include="bin\Microsoft.AI.Web.dll" />
     <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
     <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
-    <Content Include="bin\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
-    <Content Include="bin\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
     <Content Include="bin\Microsoft.ReportViewer.Common.dll" />
     <Content Include="bin\Microsoft.ReportViewer.DataVisualization.dll" />
     <Content Include="bin\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
     <Content Include="bin\Microsoft.ReportViewer.WebForms.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
-    <Content Include="bin\roslyn\csc.exe" />
-    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
-    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
-    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
-    <Content Include="bin\roslyn\vbc.exe" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\NodaTime.dll" />
     <Content Include="bin\SqlServerTypes\x64\msvcr100.dll" />
     <Content Include="bin\SqlServerTypes\x64\SqlServerSpatial110.dll" />
     <Content Include="bin\SqlServerTypes\x86\msvcr100.dll" />
     <Content Include="bin\SqlServerTypes\x86\SqlServerSpatial110.dll" />
+    <Content Include="bin\System.Buffers.dll" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\System.Memory.dll" />
+    <Content Include="bin\System.Numerics.Vectors.dll" />
+    <Content Include="bin\System.Runtime.CompilerServices.Unsafe.dll" />
     <Content Include="bin\TagService.dll" />
     <Content Include="bin\Twilio.dll" />
     <Content Include="Content\admin.css" />
@@ -1273,6 +1261,7 @@
     <Content Include="Data\Files\PhoneLog.txt" />
     <Content Include="Default.aspx" />
     <Content Include="EventConfirm.aspx" />
+    <Content Include="rat.aspx" />
     <Content Include="UserAppointment.aspx" />
     <Content Include="Pages\CalendarScheduler.aspx" />
     <Content Include="Pages\CalendarEntryN.aspx" />
@@ -1632,6 +1621,7 @@
     <Content Include="EmailUnsubscribe.aspx" />
     <Content Include="EmailFlow.aspx" />
     <Content Include="xml\ContactInfo.xml" />
+    <Content Include="API\Pest.ashx" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.8.3.min.js" />
     <None Include="scripts\jquery-3.1.1.intellisense.js" />
@@ -1808,9 +1798,6 @@
     <Content Include="SMS.aspx" />
     <Content Include="MasterPage\Site.master" />
     <Content Include="MasterPage\NewUser.master" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="scripts\esm\popper-utils.js.map" />
     <Content Include="scripts\esm\popper-utils.min.js.map" />
     <Content Include="scripts\esm\popper.js.map" />
@@ -1878,6 +1865,13 @@
     </Compile>
     <Compile Include="EventConfirm.aspx.designer.cs">
       <DependentUpon>EventConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rat.aspx.cs">
+      <DependentUpon>rat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rat.aspx.designer.cs">
+      <DependentUpon>rat.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserAppointment.aspx.cs">
       <DependentUpon>UserAppointment.aspx</DependentUpon>

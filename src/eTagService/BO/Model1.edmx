@@ -437,6 +437,15 @@ warning 6002: The table/view 'eTag365.dbo.GlobalID' does not have a primary key 
           <Property Name="IsRecurring" Type="bit" />
           <Property Name="IsAgree" Type="bit" />
         </EntityType>
+        <EntityType Name="rat_transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="starttime" Type="varchar" MaxLength="500" />
+          <Property Name="endtime" Type="varchar" MaxLength="500" />
+          <Property Name="filepath" Type="varchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="ReferralAccount">
           <Key>
             <PropertyRef Name="Id" />
@@ -758,6 +767,7 @@ warning 6002: The table/view 'eTag365.dbo.GlobalID' does not have a primary key 
           <EntitySet Name="Master" EntityType="Self.Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentHistory" EntityType="Self.PaymentHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentInformation" EntityType="Self.PaymentInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rat_transaction" EntityType="Self.rat_transaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReferralAccount" EntityType="Self.ReferralAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReferralTransaction" EntityType="Self.ReferralTransaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
@@ -1206,6 +1216,15 @@ warning 6002: The table/view 'eTag365.dbo.GlobalID' does not have a primary key 
           <Property Name="IsRecurring" Type="Boolean" />
           <Property Name="IsAgree" Type="Boolean" />
         </EntityType>
+        <EntityType Name="rat_transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="starttime" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="endtime" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="filepath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="ReferralAccount">
           <Key>
             <PropertyRef Name="Id" />
@@ -1461,6 +1480,7 @@ warning 6002: The table/view 'eTag365.dbo.GlobalID' does not have a primary key 
           <EntitySet Name="Master" EntityType="Self.Master" />
           <EntitySet Name="PaymentHistory" EntityType="Self.PaymentHistory" />
           <EntitySet Name="PaymentInformation" EntityType="Self.PaymentInformation" />
+          <EntitySet Name="rat_transaction" EntityType="Self.rat_transaction" />
           <EntitySet Name="ReferralAccount" EntityType="Self.ReferralAccount" />
           <EntitySet Name="ReferralTransaction" EntityType="Self.ReferralTransaction" />
           <EntitySet Name="States" EntityType="Self.States" />
@@ -2082,6 +2102,16 @@ warning 6002: The table/view 'eTag365.dbo.GlobalID' does not have a primary key 
                 <ScalarProperty Name="CheckNo" ColumnName="CheckNo" />
                 <ScalarProperty Name="IsRecurring" ColumnName="IsRecurring" />
                 <ScalarProperty Name="IsAgree" ColumnName="IsAgree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rat_transaction">
+            <EntityTypeMapping TypeName="eTag365Model.rat_transaction">
+              <MappingFragment StoreEntitySet="rat_transaction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="filepath" ColumnName="filepath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

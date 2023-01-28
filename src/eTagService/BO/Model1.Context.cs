@@ -45,6 +45,7 @@ namespace TagService.BO
         public virtual DbSet<Master> Master { get; set; }
         public virtual DbSet<PaymentHistory> PaymentHistory { get; set; }
         public virtual DbSet<PaymentInformation> PaymentInformation { get; set; }
+        public virtual DbSet<rat_transaction> rat_transaction { get; set; }
         public virtual DbSet<ReferralAccount> ReferralAccount { get; set; }
         public virtual DbSet<ReferralTransaction> ReferralTransaction { get; set; }
         public virtual DbSet<States> States { get; set; }

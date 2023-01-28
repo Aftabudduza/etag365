@@ -942,6 +942,21 @@ namespace eTag365.API
                     JSN = "{\"status\": false, \"message\": \"No countryData\", \"Data\": [{}] }";
                 }
             }
+            //// https://etag365.net/API/contact.ashx?datatype=get_ratdata
+            else if (context.Request.Params["datatype"] == "get_ratdata")
+            {
+                string sSQL = "select Id, starttime, endtime, isnull(filepath,'') filepath from rat_transaction order by id desc";
+                DataTable dtResult = SqlToTbl(sSQL);
+                if (dtResult != null && dtResult.Rows.Count > 0)
+                {
+                    JSN = strPref + GetJson(dtResult) + strPosf;
+                }
+
+                else
+                {
+                    JSN = "{\"status\": false, \"message\": \"No Data\", \"Data\": [{}] }";
+                }
+            }
             else
             {
                 JSN = "{\"status\": false, \"message\": \"Unknown Command\", \"Data\": [{}] }";

@@ -168,8 +168,8 @@
             <!-- Main content -->
             <section class="content" style="padding: 5px 0;">
                 <form id="form1" runat="server" class="form-horizontal">
-                    <asp:ToolkitScriptManager runat="server" ID="sc1">
-                    </asp:ToolkitScriptManager>
+                    <asp:ScriptManager runat="server" ID="sc1">
+                    </asp:ScriptManager>
                     <asp:UpdatePanel runat="server" ID="UpdatePanel8" UpdateMode="Conditional">
                         <ContentTemplate>
                             <div class="box">

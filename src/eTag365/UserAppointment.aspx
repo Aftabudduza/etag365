@@ -4,8 +4,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <form id="form11" runat="server" class="form-horizontal">
-        <asp:ToolkitScriptManager runat="server" ID="sc1">
-        </asp:ToolkitScriptManager>
+        <asp:ScriptManager runat="server" ID="sc1">
+        </asp:ScriptManager>
         <asp:UpdatePanel ID="upnlImageVideoUpld" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
                 <!-- left column -->
