@@ -48,7 +48,7 @@ namespace eTag365.API
 
             // Api for DB Query
             
-            // https://etag365.net/API/Pest.ashx?datatype=add_data&Data=starttime*2020-05-05 22:12:01.807|endtime*2020-05-05 22:12:01.807|filepath*C:\Users\Mohammad\Downloads\ee\1.jpeg
+            // http://173.248.133.199/API/Pest.ashx?datatype=add_data&Data=starttime*2020-05-05 22:12:01.807|endtime*2020-05-05 22:12:01.807|filepath*C:\Users\Mohammad\Downloads\ee\1.jpeg
             if (context.Request.Params["datatype"] == "add_data")
             {
                 if (context.Request.Params["Data"] == null)
@@ -66,7 +66,7 @@ namespace eTag365.API
 
                     if (nId > 0)
                     {
-                        jsonString = "[{\"VersionId\":\"" + nId.ToString() + "\"";
+                        jsonString = "[{\"RatId\":\"" + nId.ToString() + "\"";
                         jsonString += "}]";
                         JSN = strPref + jsonString + strPosf;
                     }
@@ -77,7 +77,7 @@ namespace eTag365.API
 
                 }
             }
-            //// https://etag365.net/API/Pest.ashx?datatype=get_ratdata
+            //// http://173.248.133.199/API/Pest.ashx?datatype=get_ratdata
             else if (context.Request.Params["datatype"] == "get_ratdata")
             {
                 string sSQL = "select Id, starttime, endtime, isnull(filepath,'') filepath from rat_transaction order by id desc";

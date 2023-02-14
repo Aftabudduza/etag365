@@ -172,10 +172,10 @@
                                 <div class="box-body">
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ appSettings:ConnectionString %>"
-                                        SelectCommand=" select Id, starttime, endtime, isnull(filepath,'') filepath from rat_transaction order by id desc  "></asp:SqlDataSource>
+                                        SelectCommand=" select Id, CONVERT(varchar,cast(starttime as datetime),20) starttime, CONVERT(varchar,cast(endtime as datetime),20) endtime, isnull(filepath,'') filepath from rat_transaction order by id desc  "></asp:SqlDataSource>
 
                                 </div>
-                                
+
 
                                 <div class="box-body">
                                     <asp:GridView Width="100%" DataSourceID="SqlDataSource1" ID="gvContactList" runat="server" AutoGenerateColumns="False" CellPadding="10" ForeColor="#333333" CssClass="table table-bordered table-striped"
@@ -184,21 +184,33 @@
                                         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                                         <Columns>
 
-                                            <asp:TemplateField HeaderText="Start" SortExpression="Data" >
+                                            <asp:TemplateField HeaderText="Start" SortExpression="Data">
                                                 <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("Starttime") %>'></asp:Label>
+                                                   <%-- <asp:Label runat="server" Text='<%# Eval("Starttime") %>'></asp:Label>--%>
+                                                     <asp:Label runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Starttime", "{0:MM/dd/yyyy hh:mm:ss tt}")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <HeaderStyle HorizontalAlign="Center" ForeColor="Black" />
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="End" SortExpression="Data">
                                                 <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("EndTime") %>'></asp:Label>
+                                                   <%-- <asp:Label runat="server" Text='<%# Eval("EndTime") %>'></asp:Label>--%>
+                                                     <asp:Label runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "EndTime", "{0:MM/dd/yyyy hh:mm:ss tt}")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <HeaderStyle HorizontalAlign="Center" ForeColor="Black" />
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="File" SortExpression="Data">
                                                 <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("filepath") %>'></asp:Label>
+                                                    <%--<asp:Label runat="server" Text='<%# Eval("filepath") %>'></asp:Label>--%>
+                                                    <asp:Image runat="server" Style="width: 60px; margin-bottom: 10px; border-width: 0px;" alt='' src='<%# Eval("filepath", "../Images/Rat/{0}") %>' />
+
+                                                </ItemTemplate>
+                                                <HeaderStyle HorizontalAlign="Center" ForeColor="Black" />
+                                            </asp:TemplateField>
+
+                                             <asp:TemplateField HeaderText="Url" SortExpression="Data">
+                                                <ItemTemplate>
+                                                    <asp:HyperLink Target="_blank" runat="server" class="col-sm-12 control-label" Style="float: left; color:#337ab7;" NavigateUrl='<%# Eval("filepath", "../Images/Rat/{0}") %>' Text='View File' />
+
                                                 </ItemTemplate>
                                                 <HeaderStyle HorizontalAlign="Center" ForeColor="Black" />
                                             </asp:TemplateField>
